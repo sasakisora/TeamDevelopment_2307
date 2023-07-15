@@ -1,0 +1,84 @@
+body {
+    height: 768px;
+    width: 100%;
+    font-family:"游ゴシック";
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*ヘッダー*/
+.header{
+    display: flex;
+    height: 90px;
+    /* width: 1366px; */
+    background-color: #2E4D70;
+   
+}
+
+/*タイトル文字*/
+.title{
+    margin: 20px 0px 0 450px;
+    color:#ffff;
+    font-size: 38px;
+
+}
+
+/*真ん中の位置*/
+.center{
+    display: flex;
+    margin: 10px 0px 200px 450px;
+    font-size: 18px;
+}
+
+/*ユーザーネーム入力*/
+.userName-form{
+    padding: 30px 0 25px 0
+    
+}
+
+/*パスワード入力*/
+.password-form{
+    padding: 60px 80px 55px 0
+}
+
+/*登録ボタン*/
+.Reg{
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid #e4b484;
+    box-sizing: border-box;
+    background: #e4b484;
+    width: 150px;
+    height: 44px;
+    margin-right: 100px;
+    color: #ffff;
+    font-size: 18px;
+    
+}
+
+/*戻るボタン*/
+.Bac{
+    display: inline-block;
+    width: 150px;
+    height: 44px;
+    padding: 0.5em;
+    border: 1px solid #e4b484;
+    box-sizing: border-box;
+    background: #e4b484;
+    margin: 0.5em 0;
+    color: #ffff;
+    font-size: 18px;
+}
+
+/*※注意*/
+.h1{
+    font-size: 5px;
+    color: red;
+}
