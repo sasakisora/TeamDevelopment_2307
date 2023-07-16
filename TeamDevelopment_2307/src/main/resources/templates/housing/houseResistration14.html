@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="ja" >
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head
-	th:replace="common/hgtfead :: head_fragment(title = '住宅新規登録画面', scripts = ~{::script}, links = ~{::link])"></head>
-
+<head>
+	<title>住宅登録管理画面</title>
+	<link href="/css/houseResistration14.css" rel="stylesheet"></link></head>
+<meta charset="utf-8" />
 <body>
 	<div th:if="${validationError}" th:each="error : ${validationError}">
         <label class="text-danger" th:text="${error}"></label>

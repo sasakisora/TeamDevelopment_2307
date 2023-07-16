@@ -27,11 +27,14 @@ public class HousingEntity14 {
 	@Column(name = "address")
 	private String address;
 	
-	@Column(name = "land")
-	private Integer land;
+	@Column(name = "land_area")
+	private Integer land_area;
 	
 	@Column(name = "layout")
 	private String layout;
+	
+	@Column(name = "age")
+	private Integer age;
 	
 	@Column(name = "price")
 	private Integer price;

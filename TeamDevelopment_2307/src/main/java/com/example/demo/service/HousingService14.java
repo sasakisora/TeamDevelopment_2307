@@ -1,15 +1,14 @@
 package com.example.demo.service;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.dto.HousingRequest14;
-import com.example.demo.entity.HousingtnEtity14;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.config.HousingRequest14;
+import com.example.demo.entity.HousingEntity14;
+import com.example.demo.repository.HousingRepository14;
 
 /**
  * ユーザー情報 Service
@@ -21,36 +20,27 @@ public class HousingService14 {
 	 * ユーザー情報 Repository
 	 */
 	@Autowired
-	private UserRepository userRepository;
+	private HousingRepository14 housingRepository14;
 
-	/**
-	 * ユーザー情報 全検索
-	 * @return  検索結果
-	 */
-	public List<UserEntity> searchAll() {
-		//課題①で作成済み
-	}
-	/**
-	 * ユーザー情報 主キー検索
-	 * @return  検索結果
-	 */
-	public UserEntity findById(Integer id) {
-		//実装1行
-	}
 
 	/**
 	 * ユーザー情報 新規登録
 	 * @param  user ユーザー情報
 	 */
-	public void create(UserRequest userRequest) {
+	public void create(HousingRequest14 housingRequest14) {
 		Date now = new Date();
-		UserEntity user = new UserEntity();
+		HousingEntity14 he14 = new HousingEntity14();
                         //実装2行
 
-
-		user.setPhone(userRequest.getPhone());
-		user.setCreateDate(now);
-		user.setUpdateDate(now);
+		he14.setName(housingRequest14.getName());
+	    he14.setAddress(housingRequest14.getAddress());
+	    he14.setLand_area(housingRequest14.getLand_area());
+	    he14.setLayout(housingRequest14.getLayout());
+	    he14.setAge(housingRequest14.getAge());
+	    he14.setPrice(housingRequest14.getPrice());
+		he14.setCreateDate(now);
+		he14.setUpdateDate(now);
                        //保存するメソッド実装1行
 
 	}
+}
