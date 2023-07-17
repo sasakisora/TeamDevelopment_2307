@@ -23,7 +23,7 @@
         </nav>
 
         <section id="sec-form">
-            <form th:action="@{/house/create}" method="post"  th:object="${}" acenctype="multipart/form-data">
+            <form th:action="@{/housing/houseResistration14}" th:method="post"  th:object="${formData}" acenctype="multipart/form-data">
 
 
          <table>
@@ -46,7 +46,7 @@
                 <tr class="row">
                     <th class="title">土地面積</th>
                     <td class="building_data" id="meter" colspan="2">
-                        <input th:field="*{land}" class="short-box" type="number" name="land_area" th:field="{buildingName}">
+                        <input th:field="*{land_area}" class="short-box" type="number" name="land_area" th:field="{buildingName}">
                     </td>
                     <td></td>
                 </tr>
@@ -60,7 +60,7 @@
                 <tr class="row">
                     <th class="title">築年数</th>
                     <td class="building_data" id="age" colspan="2">
-                        <input th:field ="*{years}" class="short-box" type="number" name="age" th:field="{buildingName}">
+                        <input th:field ="*{age}" class="short-box" type="number" name="age" th:field="{buildingName}">
                     </td>
                     <td></td>
                 </tr>
