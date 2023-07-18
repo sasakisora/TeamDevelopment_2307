@@ -1,1 +1,152 @@
-@charset "UTF-8";
+@charset "utf-8";
+
+html {
+    font-size: 100%;
+}
+body {
+    font-family: "Yu Gothic", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333333;
+}
+
+/*---- ヘッダー ----*/
+.header {
+    width: 1366px;
+    height: 90px;
+    background-color: #2e4d70;
+    margin: 0 auto;
+}
+.header h1 {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 42px;
+    color: #ffffff;
+}
+
+/*---- パンくずリスト ----*/
+.breadcrumb {
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 150px;
+    list-style: none;
+    border-bottom: 1px solid #333333 ;
+}
+.breadcrumb li {
+    display: inline;
+    list-style: none;
+    font-size: 16px;
+}
+.breadcrumb li:after {
+    content: '>';
+    padding: 0 0.2rem;
+    color: #a6cdd3;
+}
+.breadcrumb li:last-child:after {
+    content: '';
+}
+.breadcrumb li a {
+    text-decoration: none;
+    color: #a6cdd3;
+}
+.breadcrumb li a:hover {
+    color: #2e4d70;
+}
+
+
+/*---- メイン ----*/
+.main-wrapper {
+    width: 1366px;
+    height: 768px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.form-area {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.name-text, .address-text, .land-text, .floor-text, .age-text, .price-text {
+    padding-bottom: 15px;
+}
+label {
+    margin-left: 100px;
+}
+
+#housename, #address {
+    width: 500px;
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 0.2rem;
+    border-color: #333333;
+}
+
+#land, #floor, #age, #price{
+    width: 300px;
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 0.2rem;
+    border-color: #333333;    
+}
+
+.image-text {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.image-text p {
+    margin-left: 100px;
+}
+img {
+    width: 250px;
+    height: 100px;
+    display: block;
+    margin-top: 10px;
+    background-color: #a9a9a9;
+}
+
+.edit-button-container {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    flex-wrap: nowrap;
+
+}
+  
+.edit-button {
+    background-color: #e4b484;
+    border: none;
+    padding: 5px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  
+.edit-input {
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.delete-button {
+    background-color: #2e4d70;
+    border: none;
+    padding: 5px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.delete-input {
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+    <link href="css/style1.css" rel="stylesheet">
 </head>
 <body>
+    <!--ここからヘッダー-->
+    <div class="header">
+        <h1>住宅編集画面</h1>
+        </div>
+        <!--ここまでヘッダー-->
+    
+        <!--ここからパンくずリスト-->
+        <ol class="breadcrumb">
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="house_list.html">住宅一覧</a></li>
+            <li><a href="customer_registration.html">住宅編集</a></li>
+        </ol>
+        <!--ここまでパンくずリスト-->
+    
+        <!--ここからメイン-->
+        <div class="main-wrapper">
+            <div class="form-area">
+                <form method="post">
+                    <div class="name-text">
+                        <label for="housename">物件名</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="housename" name="housename"><br>
+                    </div>
+    
+                    <div class="address-text">
+                        <label for="address">所在地</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="address" name="address"><br>
+                    </div>
+    
+                    <div class="land-text">
+                        <label for="land">土地面積</label>
+                        <input type="text" id="land" name="land"><span>&nbsp;&nbsp;㎡</span><br>
+                    </div>
+    
+                    <div class="floor-text">
+                        <label for="floor">間取り</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="floor" name="floor"><br>
+                    </div>
+    
+                    <div class="age-text">
+                        <label for="age">築年数</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="age" name="age"><span>&nbsp;&nbsp;年</span><br>
+                    </div>
+
+                    <div class="price-text">
+                        <label for="price">販売価格</label>
+                        <input type="text" id="price" name="price"><span>&nbsp;&nbsp;万円</span><br>
+                    </div>    
+
+                    <div class="image-text">
+                        <label for="image">差込画像</label>
+                        <p>外観&nbsp;&nbsp;&nbsp;<input type="file" name="example" accept="image/*" multiple>
+                        <br><img src="preview"></p>
+                        <p>間取り&nbsp;&nbsp;&nbsp;<input type="file" name="example" accept="image/*" multiple>
+                        <br><img src="preview"></p>
+                    </div>
+
+                    <div class="edit-button-container">
+                        <div class="edit-button">
+                            <input type="submit" value="確定" class="edit-input">
+                        </div>
+                        <div class="delete-button">
+                            <input type="submit" value="削除" class="delete-input">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
 
 </body>
+
+
 </html>
