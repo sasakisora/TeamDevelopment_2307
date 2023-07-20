@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -15,13 +16,13 @@ public class HousingRequest14 implements Serializable {
 	private String name;
 	@Size(max = 255, message = "所在地は255文字以内で入力してください")
 	private String address;
-	@Size(max = 5, message = "土地面積は数値で入力してください")
+	@Max(value = 5, message = "土地面積は数値で入力してください")
 	private Integer land_area;
 	@Size(max = 5, message = "間取りは単位まで入力してください（例：１DK）")
 	private String layout;
-	@Size(max = 3, message = "築年数は数値で入力してください")
+	@Max(value = 3, message = "築年数は数値で入力してください")
 	private Integer age;
-	@Size(max = 15, message = "販売価格は数値で入力してください")
+	@Max(value = 15, message = "販売価格は数値で入力してください")
 	private Integer price;
 
 }

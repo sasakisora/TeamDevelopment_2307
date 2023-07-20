@@ -31,7 +31,7 @@ public class HousingService14 {
 		Date now = new Date();
 		HousingEntity14 he14 = new HousingEntity14();
                         //実装2行
-
+        // リクエストデータからエンティティオブジェクトへのマッピング
 		he14.setName(housingRequest14.getName());
 	    he14.setAddress(housingRequest14.getAddress());
 	    he14.setLand_area(housingRequest14.getLand_area());
@@ -41,6 +41,8 @@ public class HousingService14 {
 		he14.setCreateDate(now);
 		he14.setUpdateDate(now);
                        //保存するメソッド実装1行
+		// エンティティオブジェクトをデータベースに保存
+        housingRepository14.save(he14);
 
 	}
 }
