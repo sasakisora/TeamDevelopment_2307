@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.form.UserRegRequest;
 import com.example.demo.entity.UserRegEntity;
+import com.example.demo.form.UserRegRequest;
 import com.example.demo.repository.UserRegRepository;
 
 /**
@@ -21,7 +21,7 @@ public class UserService {
 	 * ユーザー情報 Repository
 	 */
 	@Autowired
-	private UserRegRepository userRegRepository;
+	public UserRegRepository userRegRepository;
 
 	/**
 	 * ユーザー情報 全検索
@@ -35,7 +35,7 @@ public class UserService {
 	 * @return  検索結果
 	 */
 	public UserRegEntity findById(Integer id) {
-		//実装1行
+		UserRegEntity userRegEntiy = new UserRegEntity();
 	}
 
 	/**
@@ -51,6 +51,5 @@ public class UserService {
 		user.setCreateDate(now);
 		user.setUpdateDate(now);
 		userRegRepository.save(user);
-                       //保存するメソッド実装1行
-
 	}
+ }
