@@ -9,13 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.form.UserRequest;
-import com.example.demo.entity.User;
+import com.example.demo.form.UserRegRequest;
 import com.example.demo.service.UserService;
 
 
@@ -32,7 +29,6 @@ public class UserRegController {
 	@Autowired
 	UserService userService;
 
-	
 	/**
 	 * ユーザー新規登録画面を表示
 	 * @param  model Model
@@ -40,7 +36,7 @@ public class UserRegController {
 	 */
 	@RequestMapping("/user/add")
 	public String displayAdd(Model model) {
-		//一行追加
+		model.addAttribute("userRequest", new UserRegRequest());
 
 		return "user/add";
 	}
@@ -52,25 +48,15 @@ public class UserRegController {
 	 * @return  ユーザー情報一覧画面
 	 */
 	@RequestMapping("/user/create")
-	public String create(//ここに追加 Model model) {
-		//入力判定入れること
-
-			// 入力チェックエラーの場合3行実装
-			
-　　　　　　　　//エラー判定後の画面遷移2行実装
-
+	public String create(@Validated @ModelAttribute UserRegRequest userRequest, BindingResult result, Model model) {
+		 List<String> errorList = new ArrayList<String>();
+	      for (ObjectError error : result.getAllErrors()) {
+	        errorList.add(error.getDefaultMessage());
 		}
-		// ユーザー情報の登録2行実装
+		// ユーザー情報の登録
+	      model.addAttribute("validationError", errorList);
+	      return "user/add";
 
 			}
-	/**
-	 * ユーザー情報詳細画面を表示
-	 * @param  id 表示するユーザーID
-	 * @param  model Model
-	 * @return  ユーザー情報詳細画面
-	 */
-	@GetMapping("/user/{id}")
-	public String displayView(@PathVariable  Integer id, Model model) {
-		return "user/view";
-
+	
 	}
