@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+
+    <link href="css/customer_registration.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--ここからヘッダー-->
+    <div class="header">
+    <h1>顧客登録</h1>
+    </div>
+    <!--ここまでヘッダー-->
+
+    <!--ここからパンくずリスト-->
+    <ol class="breadcrumb">
+        <li><a href="menu.html">メニュー</a></li>
+        <li><a href="customer_list.html">顧客一覧</a></li>
+        <li><a href="customer_registration.html">顧客登録</a></li>
+    </ol>
+    <!--ここまでパンくずリスト-->
+
+    <!--ここからメイン-->
+    <div class="main-wrapper">
+        <div class="form-area">
+            <form method="post">
+                <div class="name-text">
+                    <label for="name">名前 <span>*必須</span></label><br>
+                    <input type="text" id="name" name="name" placeholder="例）山田  太郎" required><br>
+                </div>
+
+                <div class="date-text">
+                    <label for="birthdate">生年月日 <span>*必須</span></label><br>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="例）2000年1月1日" required><br>
+                </div>
+
+                <div class="address-text">
+                    <label for="address">住所 <span>*必須</span></label><br>
+                    <input type="text" id="address" name="address" placeholder="例）東京都江東区青海2-7-4 theSOHO 312号室" required><br>
+                </div>
+
+                <div class="phone-text">
+                    <label for="phone">電話番号 <span>*必須</span></label><br>
+                    <input type="text" id="phone" name="phone" placeholder="例）03-1234-5678" required><br>
+                </div>
+
+                <div class="email-text">
+                    <label for="email">メールアドレス <span>*必須</span></label><br>
+                    <input type="email" id="email" name="email" placeholder="例）〇〇@rtc.jp" required><br>
+                </div>
+
+                <div class="register-button-container">
+                    <div class="register-button">
+                      <input type="submit" value="登録する" class="register-input">
+                    </div>
+                    <!--<div class="back-button">
+                        <input type="submit" value="戻る" class="back-input">
+                    </div>-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!--画面オーバーレイ表示-->
+    <div id="overlay" class="overlay-event">
+        <div class="flex">
+          <div id="overlay-inner">
+            <p>登録完了しました</p>
+            <button id="close-btn" class="overlay-event" type=button>顧客一覧に戻る</button>
+          </div>
+        </div>
+    </div>
+</body>
+
+</html>

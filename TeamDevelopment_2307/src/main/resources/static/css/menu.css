@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+.div{
+   margin: auto;
+} 
+
+/* 左画面 */
+ .left {
+    float: left;
+    width: 600px;
+    height: 800px;
+    background-image:url(./images/0.jpg);
+ }
+
+/* 右画面 */
+.right-center{
+   height: 800px;
+}
+
+/* ログアウト */
+.manu{
+   float:left;
+   position: relative;
+   width: 600px;
+   height: 150px;
+}
+
+.btn {
+   position: absolute;
+   top: 50px;
+   left: 380px;
+   padding: 10px;
+   text-decoration: none;
+   background-color:#e4b484;
+   color:white;
+ }
+
+ /* メインボタン */
+
+.btn1 {
+   position: absolute;
+   padding: 15px;
+   width: 200px;
+   top: 230px;
+   left: 200px;
+   font-size: 18px;
+   text-align: center;
+   text-decoration: none;
+   background-color:#2e4d70;
+   color:white;
+ }
+
+ .btn2 {
+   position: absolute;
+   padding: 15px;
+   width: 200px;
+   top: 320px;
+   left: 200px;
+   font-size: 18px;
+   text-align: center;
+   text-decoration: none;
+   background-color:#a6cdd3;
+   color:white;
+ }
+
+ .btn3 {
+   position: absolute;
+   padding: 15px;
+   width: 200px;
+   top: 410px;
+   left:200px;
+   font-size: 18px;
+   text-align: center;
+   text-decoration: none;
+   background-color:#2e4d70;
+   color:white;
+ }
+
+ .btn4 {
+   position: absolute;
+   padding: 10px;
+   width: 100px;
+   top: 520px;
+   left:250px;
+   font-size: 14px;
+   text-align: center;
+   text-decoration: none;
+   background-color:#e4b484;
+   color:white;
+ }
+
+
