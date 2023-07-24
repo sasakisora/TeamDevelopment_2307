@@ -1,14 +1,21 @@
 package com.example.demo.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * ユーザー情報 Controller
+ */
 @Controller
 public class MenuController {
-	
-	@RequestMapping(value="/")
+
+	@GetMapping("/")
 	public String index() {
-		return "Menu";
+		return "housing/Menu";
 	}
 
+
 }
+
+
