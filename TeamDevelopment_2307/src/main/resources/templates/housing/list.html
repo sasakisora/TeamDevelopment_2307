@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head :: head_fragment(title = '一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<head th:replace="common/head :: head_fragment(title = '一覧（仮）', scripts = ~{::script}, links = ~{::link})"></head>
 <body>
   <div class="container">
     <h1>登録する前と後の遷移先（仮）</h1>
@@ -20,11 +20,10 @@
           <th>更新日時</th>
           <th>登録日時</th>
           <th>削除日時</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+        <tr th:each="house : ${houselist}" th:object="${HouseAdd14Request}" class="align-middle">
           <td th:text="*{id}"></td>
           <td th:text="*{name}"></td>
           <td th:text="*{address}"></td>
@@ -32,9 +31,9 @@
           <td th:text="*{layout}"></td>
           <td th:text="*{age}"></td>
           <td th:text="*{price}"></td>
-          <td th:text="${#dates.format(user.updateDate, 'yyyy/MM/dd')}"></td>
-          <td th:text="${#dates.format(user.createDate, 'yyyy/MM/dd')}"></td>
-          <td th:text="${#dates.format(user.deleteDate, 'yyyy/MM/dd')}"></td>
+          <td th:text="${#dates.format(house.updateDate, 'yyyy/MM/dd')}"></td>
+          <td th:text="${#dates.format(house.createDate, 'yyyy/MM/dd')}"></td>
+          <td th:text="${#dates.format(house.deleteDate, 'yyyy/MM/dd')}"></td>
           <td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
