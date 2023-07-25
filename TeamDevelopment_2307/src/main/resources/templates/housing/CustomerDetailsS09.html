@@ -24,33 +24,37 @@
             </div>
 
             <div class="center">
-                <div class="customer">
+                <div class="customer" th:object="${userData}">
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
-                        <p th:text="">冨田晃洋</p>
+                        <p th:text="*{name})">冨田晃洋</p>
                     </div>
+                    
+<!-- 
                     <div class="birthday customer-detail">生年月日</div>
                     <div class="border">
-                        <p th:text="">2000/01/01</p>
+                        <p th:text="*{}">2000/01/01</p>
+-->
+                    
                     </div>
                     <div class="address customer-detail">住所</div>
                     <div class="border">
-                        <p th:text="">東京都港区青海1-111-11 the SOHO 312</p>
+                        <p th:text="*{address}">東京都港区青海1-111-11 the SOHO 312</p>
                     </div>
                     <div class="tell customer-detail">電話番号</div>
                     <div class="border">
-                        <p th:text="">08012345678</p>
+                        <p th:text="*{phone}">08012345678</p>
                     </div>
                     <div class="mail customer-detail">メールアドレス</div>
                     <div class="border">
-                        <p th:text="">abcdefg1234@gmail.com</p>
+                        <p th:text="*{email}">abcdefg1234@gmail.com</p>
                     </div>
                 </div>
             </div>
 
             <div class="bottom">
                 <div class="button">
-                    <a th:href="" class="btn edit-delete" >編集削除</a>
+                    <a th:href="@{/housing/{id}/edit(id=*{id})}" class="btn edit-delete" >編集削除</a>
                     <a href="" class="btn csv-download">CSVダウンロード</a>
                     <a href="" class="btn back" >戻る</a>
                 </div>
