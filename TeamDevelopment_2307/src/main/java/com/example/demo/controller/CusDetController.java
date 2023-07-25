@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 //import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.entity.CusDetEntity;
 import com.example.demo.service.CusDetService;
@@ -19,8 +20,9 @@ public class CusDetController {
 	
 	
 	
-	  /*@GetMapping("/housing/{id}")*/
-	@RequestMapping("http://localhost:8080/housing/CustomerDetailsS09")
+	/*@GetMapping(value = "housing/{id}",params = "id = 1")*/
+	
+	@RequestMapping(value = "housing/{id}", method = RequestMethod.GET, params = "id=1")
 	public String displayView(@PathVariable Long id, Model model) {
 		CusDetEntity cusentity = cusdetService.findById(id);
 		model.addAttribute("cusData", cusentity);
