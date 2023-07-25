@@ -32,7 +32,7 @@ public class HouseAdd14Request implements Serializable {
   /**
    * 間取り
    */
-  @Size(max = 20, message = "間取りは20以内で入力してください")
+  @Size(max = 100, message = "間取りは100文字以内で入力してください")
   private String layout;
   /**
    * 築年数

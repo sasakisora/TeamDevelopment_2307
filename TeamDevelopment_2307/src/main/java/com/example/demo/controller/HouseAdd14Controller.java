@@ -69,7 +69,7 @@ public class HouseAdd14Controller {
         errorList.add(error.getDefaultMessage());
       }
       model.addAttribute("validationError", errorList);
-      return "housing/houseAdd";
+      return "housing/houseAdd14";
     }
     // ユーザー情報の登録
     houseAdd14Service.create(Request);

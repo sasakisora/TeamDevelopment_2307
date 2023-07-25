@@ -1,67 +1,139 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org">
-<head
-  th:replace="common/head :: head_fragment(title = '住宅登録管理画面だよ', scripts = ~{::script}, links = ~{::link})">
-<link th:href="@{/css/houseregi14.css}" rel="stylesheet">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/head :: head_fragment(title = '住宅登録管理画面だよ', scripts = ~{::script}, links = ~{::link})">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/houseAdd14.css}">
+
 </head>
+
 <body>
-  <div class="container">
-    <div th:if="${validationError}" th:each="error : ${validationError}">
-      <label class="text-danger" th:text="${error}"></label>
-    </div>
-    
-    <main>
-        <nav id="breadcrumbs">
-            <ol>
-                <li><a href="#" class="breadcrumbs-link">メニュー</a></li>
-                <li><a href="list" class="breadcrumbs-link">住宅一覧</a></li>
-                <li><span id="this-page">住宅登録画面</span></li>
-            </ol>
-        </nav>
-    <h1>住宅登録管理画面</h1>
-    <form th:action="@{/housng/create}" th:object="${HouseAdd14Request}" th:method="post">
+	<div class="container">
+		<div th:if="${validationError}" th:each="error : ${validationError}">
+			<label class="text-danger" th:text="${error}"></label>
+		</div>
+		<header>
+			<h1 th:text="住宅登録管理画面"></h1>
+		</header>
 
-      <div class="form-group">
-        <label>物件名：<span class="text-danger">※</span></label>
-        <input type="text" th:field="*{name}" class="form-control">
-      </div>
+		<main>
+			<nav id="breadcrumbs">
+				<ol>
+					<li><a href="/housing/list" class="breadcrumbs-link">メニュー</a></li>
+					<li><span id="this-page">住宅登録画面</span></li>
+				</ol>
+			</nav>
 
-      <div class="form-group">
-        <label>所在地：</label>
-        <input type="text" th:field="*{address}" class="form-control">
-      </div>
-      
-      <div class="form-group">
-        <label>土地面積：</label>
-        <input type="number" th:field="*{land_area}" class="form-control">
-      </div>
-      
-      <div class="form-group">
-        <label>間取り：</label>
-        <input type="text" th:field="*{layout}" class="form-control">
-      </div>
+			<section id="sec-form">
+				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post">
 
-      <div class="form-group">
-        <label>築年数：</label>
-        <input type="number" th:field="*{age}" class="form-control">
-      </div>
-      
-      <div class="form-group">
-        <label>販売価格：</label>
-        <input type="number" th:field="*{price}" class="form-control">
-      </div>
-      
-      <div class="text-center">
-        <a href="/housing/list" class="btn btn-secondary">キャンセル</a>
-        <input type="submit" value="　登録　" class="btn btn-primary">
-      </div>
-    </form>
-    </main>
-  </div>
+					<table>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>物件名：<span class="text-danger">※</span></label>
+							</th>
+							<td class="building_data" colspan="2">
+								<input type="text" th:field="*{name}" class="long-box form-control" name="name">
+								<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+							</td>
+							<td></td>
+						</tr>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>所在地：<span class="text-danger">※</span></label>
+							</th>
+							<td class="building_data" colspan="2">
+								<input type="text" th:field="*{address}" class="long-box form-control" name="address">
+								<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+							</td>
+							<td></td>
+						</tr>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>土地面積：</label>
+							</th>
+							<td class="building_data" id="meter" colspan="2">
+								<input type="number" th:field="*{land_area}" class="short-box form-control"
+									name="land_area">
+								<span th:if="${#fields.hasErrors('land_area')}" th:errors="*{land_area}"></span>
+							</td>
+							<td></td>
+						</tr>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>間取り：</label>
+							</th>
+							<td class="building_data" colspan="2">
+								<input type="text" th:field="*{layout}" class="short-box form-control" name="layout">
+								<span th:if="${#fields.hasErrors('layout')}" th:errors="*{layout}"></span>
+							</td>
+							<td></td>
+						</tr>
+
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>築年数：</label>
+							</th>
+							<td class="building_data" id="age" colspan="2">
+								<input type="number" th:field="*{age}" class="short-box form-control" name="age">
+								<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+							</td>
+							<td></td>
+						</tr>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>販売価格：</label>
+							</th>
+							<td class="building_data" id="price" colspan="2">
+								<input type="number" th:field="*{price}" class="short-box form-control" name="price">
+								<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+							</td>
+							<td></td>
+						</tr>
+						<tr id="row-img">
+							<th class="title row-img-title">差込画像</th>
+							<td class="building_data row-img-house">
+								<div class="subtitle-box">
+									<p class="subtitle">外観</p>
+									<input type="file" name="image_file" id="row-img-exterior-file" />
+									<div class="input-btn-box">
+										<button form="form" type="submit">送信する</button>
+									</div>
+								</div>
+								<div class="img-img-box">
+									<img src="URI" id="exterior_img" alt="外観写真">
+								</div>
+							</td>
+							<td class="building_data row-img-house">
+								<div class="subtitle-box">
+									<p class="subtitle">間取り</p>
+									<input type="file" name="image_file" id="row-img-layout-file" />
+									<div class="input-btn-box">
+										<button form="form" type="submit">送信する</button>
+									</div>
+								</div>
+								<div class="img-img-box">
+									<img src="URI" id="layout_img" alt="間取り写真">
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div id="submit-box">
+						<button class="btn btn-primary" id="submit-btn" form="form" type="submit" value="Register">登
+							録</button>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
 </body>
-</html>
 
+</html>
 
 
 <!--<!doctype html>-->
@@ -113,7 +185,7 @@
 <!--                    <th class="title">土地面積</th>-->
 <!--                    <td class="building_data" id="meter" colspan="2">-->
 <!--                        <input th:field="*{land_area}" class="short-box" type="number" name="XXland_area">-->
-<!--                                                <span th:if="${#fields.hasErrors('land_area')}" th:errors="*{land_area}"></span>-->
+<!--                        <span th:if="${#fields.hasErrors('land_area')}" th:errors="*{land_area}"></span>-->
 <!--                    </td>-->
 <!--                    <td></td>-->
 <!--                </tr>-->
