@@ -24,18 +24,10 @@
             </div>
 
             <div class="center">
-                <div class="customer" th:object="${userData}">
+                <div class="customer" th:object="${cusData}">
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
                         <p th:text="*{name})">冨田晃洋</p>
-                    </div>
-                    
-<!-- 
-                    <div class="birthday customer-detail">生年月日</div>
-                    <div class="border">
-                        <p th:text="*{}">2000/01/01</p>
--->
-                    
                     </div>
                     <div class="address customer-detail">住所</div>
                     <div class="border">
