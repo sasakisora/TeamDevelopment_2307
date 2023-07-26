@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.dto.CusUpdateRequest;
 import com.example.demo.entity.CusEntity;
@@ -25,19 +25,20 @@ import com.example.demo.service.CusService;
  */
 @Controller
 public class CusController {
-	    CusService customerService;
+	
+	@Autowired
+	private CusService customerService;
 	    /**
 	     * ユーザー情報一覧画面を表示
 	     * @param  model Model
 	     * @return  ユーザー情報一覧画面のHTML
 	     */
-	    @RequestMapping("housing/CustomerEdit")
+	    @GetMapping("housing/CustomerEdit")
 	  	public String displayList(Model model) {
 
-	      //3行追加
-	        List<CusEntity> userlist = customerService.searchAll();
-	        model.addAttribute("userlist", userlist);
-	        return "user/list";
+	        List<CusEntity> housingCustomerEdit = customerService.searchAll();
+	        model.addAttribute("housingCustomerEdit", housingCustomerEdit);
+	        return "housing/CustomerEdit";
 	      }	
 
 	
@@ -65,7 +66,7 @@ public class CusController {
 	   * @param  model Model
 	   * @return  ユーザー情報詳細画面
 	   */
-	  @RequestMapping("/housing/update")
+	  @GetMapping("/housing/update")
 	  public String update(@Validated  @ModelAttribute  CusUpdateRequest userUpdateRequest, BindingResult result, Model model) {
 	    if (result.hasErrors()) {
 	      List<String> errorList = new ArrayList<String>();

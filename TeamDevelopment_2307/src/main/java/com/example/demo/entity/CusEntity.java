@@ -22,7 +22,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "TeamDevelopment2307")
+@Table(name = "customers")
 
 public class CusEntity implements Serializable {
 	
