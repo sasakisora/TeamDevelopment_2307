@@ -37,8 +37,8 @@ public class HouseAdd14Controller {
    */
   @GetMapping(value = "/housing/list")
   public String displayList(Model model) {
-	List<House> userlist = houseAdd14Service.searchAll();
-    model.addAttribute("userlist", userlist);
+	List<House> houselist = houseAdd14Service.searchAll();
+    model.addAttribute("houselist", houselist);
     return "housing/list";
   }
 
@@ -55,7 +55,7 @@ public class HouseAdd14Controller {
 
   /**
    * ユーザー新規登録
-   * @param userRequest リクエストデータ
+   * @param Request リクエストデータ
    * @param model Model
    * @return ユーザー情報一覧画面
    */

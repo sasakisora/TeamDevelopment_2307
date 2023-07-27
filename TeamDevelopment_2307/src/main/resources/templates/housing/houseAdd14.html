@@ -3,7 +3,6 @@
 
 <head th:replace="common/head :: head_fragment(title = '住宅登録管理画面だよ', scripts = ~{::script}, links = ~{::link})">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/houseAdd14.css}">
-
 </head>
 
 <body>
@@ -95,37 +94,36 @@
 							</td>
 							<td></td>
 						</tr>
-						<tr id="row-img">
-							<th class="title row-img-title">差込画像</th>
-							<td class="building_data row-img-house">
-								<div class="subtitle-box">
-									<p class="subtitle">外観</p>
-									<input type="file" name="image_file" id="row-img-exterior-file" />
-									<div class="input-btn-box">
-										<button form="form" type="submit">送信する</button>
-									</div>
-								</div>
-								<div class="img-img-box">
-									<img src="URI" id="exterior_img" alt="外観写真">
-								</div>
-							</td>
-							<td class="building_data row-img-house">
-								<div class="subtitle-box">
-									<p class="subtitle">間取り</p>
-									<input type="file" name="image_file" id="row-img-layout-file" />
-									<div class="input-btn-box">
-										<button form="form" type="submit">送信する</button>
-									</div>
-								</div>
-								<div class="img-img-box">
-									<img src="URI" id="layout_img" alt="間取り写真">
-								</div>
-							</td>
-						</tr>
+<!--						<tr id="row-img">-->
+<!--							<th class="title row-img-title">差込画像</th>-->
+<!--							<td class="building_data row-img-house">-->
+<!--								<div class="subtitle-box">-->
+<!--									<p class="subtitle">外観</p>-->
+<!--									<input type="file" name="image_file" id="row-img-exterior-file" />-->
+<!--									<div class="input-btn-box">-->
+<!--										<button form="form" type="submit">送信する</button>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="img-img-box">-->
+<!--									<img src="URI" id="exterior_img" alt="外観写真">-->
+<!--								</div>-->
+<!--							</td>-->
+<!--							<td class="building_data row-img-house">-->
+<!--								<div class="subtitle-box">-->
+<!--									<p class="subtitle">間取り</p>-->
+<!--									<input type="file" name="image_file" id="row-img-layout-file" />-->
+<!--									<div class="input-btn-box">-->
+<!--										<button form="form" type="submit">送信する</button>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="img-img-box">-->
+<!--									<img src="URI" id="layout_img" alt="間取り写真">-->
+<!--								</div>-->
+<!--							</td>-->
+<!--						</tr>-->
 					</table>
 					<div id="submit-box">
-						<button class="btn btn-primary" id="submit-btn" form="form" type="submit" value="Register">登
-							録</button>
+						<button class="btn btn-primary" id="submit-btn" form="form" type="submit">登 録</button>
 					</div>
 				</form>
 			</section>

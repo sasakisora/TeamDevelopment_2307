@@ -35,15 +35,15 @@ public class HouseAdd14Service {
    * ユーザー情報 新規登録
    * @param user ユーザー情報
    */
-  public void create(HouseAdd14Request houseAdd14Request) {
+  public void create(HouseAdd14Request Request) {
     Date now = new Date();
     House house = new House();
-    house.setName(houseAdd14Request.getName());
-    house.setAddress(houseAdd14Request.getAddress());
-    house.setLand_area(houseAdd14Request.getLand_area());
-    house.setLayout(houseAdd14Request.getLayout());
-    house.setAge(houseAdd14Request.getAge());
-    house.setPrice(houseAdd14Request.getPrice());
+    house.setName(Request.getName());
+    house.setAddress(Request.getAddress());
+    house.setLand_area(Request.getLand_area());
+    house.setLayout(Request.getLayout());
+    house.setAge(Request.getAge());
+    house.setPrice(Request.getPrice());
     house.setCreateDate(now);
     house.setUpdateDate(now);
     houseAdd14Repository.save(house);
