@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr th:each="house : ${houselist}" th:object="${HouseAdd14Request}" class="align-middle">
+        <tr th:each="house : ${houselist}" th:object="${house}" class="align-middle">
           <td th:text="*{id}"></td>
           <td th:text="*{name}"></td>
           <td th:text="*{address}"></td>
@@ -34,7 +34,7 @@
           <td th:text="${#dates.format(house.updateDate, 'yyyy/MM/dd')}"></td>
           <td th:text="${#dates.format(house.createDate, 'yyyy/MM/dd')}"></td>
           <td th:text="${#dates.format(house.deleteDate, 'yyyy/MM/dd')}"></td>
-          <td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+          <td><a th:href="@{/house/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
     </table>

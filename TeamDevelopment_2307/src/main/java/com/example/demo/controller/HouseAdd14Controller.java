@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,22 +19,23 @@ import com.example.demo.dto.HouseAdd14Request;
 import com.example.demo.entity.House;
 import com.example.demo.service.HouseAdd14Service;
 
+@SpringBootApplication
 /**
- * ユーザー情報 Controller
+ * hause情報 Controller
  */
 @Controller
 public class HouseAdd14Controller {
 
   /**
-   * ユーザー情報 Service
+   * hause情報 Service
    */
   @Autowired
   private HouseAdd14Service houseAdd14Service;
 
   /**
-   * ユーザー情報一覧画面を表示
+   * hause情報一覧画面を表示
    * @param model Model
-   * @return ユーザー情報一覧画面
+   * @return hause情報一覧画面
    */
   @GetMapping(value = "/housing/list")
   public String displayList(Model model) {
@@ -43,9 +45,9 @@ public class HouseAdd14Controller {
   }
 
   /**
-   * ユーザー新規登録画面を表示
+   * hause新規登録画面を表示
    * @param model Model
-   * @return ユーザー情報一覧画面
+   * @return hause情報一覧画面
    */
   @GetMapping(value = "/housing/houseAdd14")
   public String displayAdd(Model model) {
@@ -54,13 +56,13 @@ public class HouseAdd14Controller {
   }
 
   /**
-   * ユーザー新規登録
+   * hause新規登録
    * @param Request リクエストデータ
    * @param model Model
-   * @return ユーザー情報一覧画面
+   * @return hause情報一覧画面
    */
   @RequestMapping(value = "/house/create", method = RequestMethod.POST)
-  public String create(@Validated @ModelAttribute HouseAdd14Request Request, BindingResult result, Model model) {
+  public String create(@Validated @ModelAttribute HouseAdd14Request houseAdd14Request, BindingResult result, Model model) {
 
     if (result.hasErrors()) {
       // 入力チェックエラーの場合
@@ -69,11 +71,12 @@ public class HouseAdd14Controller {
         errorList.add(error.getDefaultMessage());
       }
       model.addAttribute("validationError", errorList);
+      model.addAttribute("HouseAdd14Request", houseAdd14Request);
       return "housing/houseAdd14";
     }
     // ユーザー情報の登録
-    houseAdd14Service.create(Request);
-    return "redirect:/housing/list";
+    houseAdd14Service.create(houseAdd14Request);
+    return "redirect:/housing/houseAdd14";
   }
 
   /**
