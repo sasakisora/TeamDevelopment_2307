@@ -78,15 +78,4 @@ public class HouseAdd14Controller {
     houseAdd14Service.create(houseAdd14Request);
     return "redirect:/housing/houseAdd14";
   }
-
-  /**
-   * ユーザー情報詳細画面を表示
-   * @param id 表示するユーザーID
-   * @param model Model
-   * @return ユーザー情報詳細画面
-//   */
-//  @GetMapping("/user/{id}")
-//  public String displayView(@PathVariable Long id, Model model) {
-//    return "user/view";
-//  }
 }

@@ -23,7 +23,7 @@
 			</nav>
 
 			<section id="sec-form">
-				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post">
+				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post" enctype="multipart/form-data">
 
 					<table>
 
@@ -99,10 +99,10 @@
 							<td class="building_data row-img-house">
 								<div class="subtitle-box">
 									<p class="subtitle">外観</p>
-									<input type="file" name="image_file" id="row-img-exterior-file" />
-									<div class="input-btn-box">
-										<button form="form" type="submit">送信する</button>
-									</div>
+									<input type="file" name="image_file" accept="image/*" id="row-img-exterior-file" />
+<!--									<div class="input-btn-box">-->
+<!--										<button form="form" type="submit">送信する</button>-->
+<!--									</div>-->
 								</div>
 								<div class="img-img-box">
 									<img src="URI" id="exterior_img" alt="外観写真">
@@ -111,10 +111,10 @@
 							<td class="building_data row-img-house">
 								<div class="subtitle-box">
 									<p class="subtitle">間取り</p>
-									<input type="file" name="image_file" id="row-img-layout-file" />
-									<div class="input-btn-box">
-										<button form="form" type="submit">送信する</button>
-									</div>
+<!--									<input type="file" name="image_file" id="row-img-layout-file" />-->
+<!--									<div class="input-btn-box">-->
+<!--										<button form="form" type="submit">送信する</button>-->
+<!--									</div>-->
 								</div>
 								<div class="img-img-box">
 									<img src="URI" id="layout_img" alt="間取り写真">
