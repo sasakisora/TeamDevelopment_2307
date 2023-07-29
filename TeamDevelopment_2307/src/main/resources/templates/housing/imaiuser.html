@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>顧客管理・検索画面</title>
-    <link rel="stylesheet" href="css/userserch.css" />
+    <link rel="stylesheet" href="css/userserch.css" >
   </head>
   <body>
     <header>
@@ -25,15 +25,6 @@
     <input id="sbtn" type="submit" value="検索" />
     </form>
 
-    <!-- ページ遷移ボタン -->
-    <div class="button">
-        <button class="button1">1</button>
-        <button class="button2">2</button>
-        <button class="button2">3</button>
-        <button class="button2">4</button>
-        <button class="button2">5</button>
-        <button class="button2">6</button>
-    </div>
 
     <!-- 顧客テーブル -->
 
@@ -41,28 +32,13 @@
         <tr>
           <th>名前</th><th>住所</th><th>電話番号</th><th>メールアドレス</th><th>編集</th>
         </tr>
-        <tr>
-         <td><a href="">今井成知</a></td>
-         <td>埼玉県さいたま市大宮区大成町</td>
-         <td>08022900945</td>
-         <td>chinanomaildayo@gmail.com</td>
-         <td><a href="">編集</a></td>
+        <tr th:each="user : ${user}">
+         <td th:text="${user.name}"><a href=""></a></td>
+         <td th:text="${user.address}"></td>
+         <td th:text="${user.phone}"></td>
+         <td th:text="${user.email}"></td>
+         <td><a href="@{/individualPageUpdate/{id}(id=${id})}" >編集</a></td>
         </tr>
-        <tr>
-          <td><a href="">名前</a></td>
-          <td>住所</td>
-          <td>電話番号</td>
-          <td>メールアドレス</td>
-          <td><a href="">編集</a></td>
-        </tr>
-        <tr>
-            <td>あ</td>
-            <td>あ</td>
-            <td>あ</td>
-            <td>あ</td>
-            <td><a href="">編集</a></td>
-        </tr>
-        <tr></tr>
       </table>
 
     </main>
