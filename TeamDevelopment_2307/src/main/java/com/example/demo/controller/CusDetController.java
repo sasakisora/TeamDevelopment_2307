@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 //import com.example.demo.entity.CusDetEntity;
 //import com.example.demo.service.CusDetService;
-//@SpringBootApplication
+@SpringBootApplication
 @Controller
 public class CusDetController {
 
