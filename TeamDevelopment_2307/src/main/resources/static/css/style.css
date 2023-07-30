@@ -55,7 +55,7 @@
 }
 
 
-/* 入力フォーム */
+ 入力フォーム 
 .Form {
     margin-left: auto;
     margin-right: auto;
@@ -64,7 +64,7 @@
 
 
 .Form-Item {
-    /* border-top: 1px solid #ddd; */
+
     padding-top: 25px;
     padding-bottom: 25px;
     width: 100%;

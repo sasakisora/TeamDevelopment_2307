@@ -1,15 +1,17 @@
+
+<!--localhost:8080/housing/CustomerEdit-->
+
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- reset.css destyle -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
-  <link rel="stylesheet"
-    href="C:\Users\yuri\Desktop\TeamDverop\TeamDevelopment_2307\TeamDevelopment_2307\src\main\resources\static\css\style.css">
-  <link rel="stylesheet" href="C:\Users\yuri\Desktop\TeamDverop\TeamDevelopment_2307\TeamDevelopment_2307\src\main\resources\static\css\common.css">
-  <title>顧客編集削除</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顧客編集削除</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -54,37 +56,43 @@
         </li>
       </ol>
     </nav>
+    
+
+    <form th:action="@{/user/update}" th:object="${userUpdateRequest}" th:method="post">
+    <input type="hidden" th:field="*{id}" />
     <div class="Form">
       <div class="Form-contents">
         <!-- 名前 -->
         <div class="Form-Item">
-          <p class="Form-Item-Label">名前</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）山田 太郎">
+          <div class="Form-Item-Label">名前</div>
+          <div>
+			  <input type="text" class="Form-Item-Input" th:field ="*{name}" placeholder="例）山田 太郎">
+		  </div>
         </div>
 
 
         <!-- 生年月日 -->
-        <div class="Form-Item">
-          <p class="Form-Item-Label ">生年月日</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）2000年1月1日">
-        </div>
+<!--        <div class="Form-Item">-->
+<!--          <p class="Form-Item-Label ">生年月日</p>-->
+<!--          <input type="text" class="Form-Item-Input" th:field ="*{dob}" placeholder="例）2000年1月1日">-->
+<!--        </div>-->
 
         <!-- 住所 -->
         <div class="Form-Item">
           <p class="Form-Item-Label ">住所</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）東京都江東区青海2-7-4 theSOHO 312号室">
+          <input type="text" class="Form-Item-Input" th:field ="*{address}" placeholder="例）東京都江東区青海2-7-4 theSOHO 312号室">
         </div>
 
         <!-- 電話番号 -->
         <div class="Form-Item">
           <p class="Form-Item-Label ">電話番号</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）03-1234-5678">
+          <input type="text" class="Form-Item-Input" th:field ="*{phone}" placeholder="例）03-1234-5678">
         </div>
 
         <!-- メールアドレス -->
         <div class="Form-Item">
           <p class="Form-Item-Label ">メールアドレス</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）○○@rtc.jp">
+          <input type="text" class="Form-Item-Input" th:field ="*{email}" placeholder="例）○○@rtc.jp">
         </div>
       </div>
     </div>
@@ -92,10 +100,10 @@
     <!-- ボタン -->
     <div class="buttons">
       <div clas="button-confirm">
-        <label for="confirm" class="modal-open confirm-Btn">確定</label>
+        <td><a th:href="@{/housing}" input type="submit" class="modal-open confirm-Btn">確定</a></td>
       </div>
       <div clas="button-delete">
-        <label for="delete" class="modal-open delete-Btn">削除</label>
+        <td><a th:href="@{/}" input type="submit"  class="modal-open delete-Btn">削除</a></td>
       </div>
     </div>
 
