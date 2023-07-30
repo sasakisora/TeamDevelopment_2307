@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>編集</title>
-    <link rel="stylesheet" th:href="@{../css/09style.css}">
+    <link rel="stylesheet" th:href="@{/css/S09style.css}">
 </head>
 
 <body>
@@ -35,36 +35,37 @@
                 </nav>
             </div>
 
-		//type="hidden" th:fild="*{id}"
+		<!-- type="hidden" th:fild="*{id}" --> 
+<!-- 		<form th:action="@{/house/CustomerDetailsS09}" th:object="${HouseAdd14Request}" th:method="post">       -->   
             <div class="center">
-                <div class="customer" th:object="${cusData}">
+                <div class="customer">
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
-                        <p th:text="*{name})">冨田晃洋</p>
+                        <p>冨田晃洋</p>
                     </div>
                     <div class="address customer-detail">住所</div>
                     <div class="border">
-                        <p th:text="*{address}">東京都港区青海1-111-11 the SOHO 312</p>
+                        <p>東京都港区青海1-111-11 the SOHO 312</p>
                     </div>
                     <div class="tell customer-detail">電話番号</div>
                     <div class="border">
-                        <p th:text="*{phone}">08012345678</p>
+                        <p>08012345678</p>
                     </div>
                     <div class="mail customer-detail">メールアドレス</div>
                     <div class="border">
-                        <p th:text="*{email}">abcdefg1234@gmail.com</p>
+                        <p>abcdefg1234@gmail.com</p>
                     </div>
                 </div>
             </div>
 
             <div class="bottom">
                 <div class="button">
-                    <a th:href="@{/housing/{id}/edit(id=*{id})}" class="btn edit-delete" >編集削除</a>
+                    <a class="btn edit-delete" >編集削除</a>
                     <a href="" class="btn csv-download">CSVダウンロード</a>
                     <a href="" class="btn back" >戻る</a>
                 </div>
             </div>
-        
+       
         </div>
 
     </div>
