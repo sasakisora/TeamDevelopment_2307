@@ -1,14 +1,17 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
-public class House_searchController {
-	
-	@RequestMapping(value="/")
-	public String index() {
-		return "House_search";
-	}
+
+public class housesearchController {
+
+	    	 @GetMapping("")
+		  	public String displayList(Model model) {
+		        return "housing/housesearch";
+		      }	
 
 }
