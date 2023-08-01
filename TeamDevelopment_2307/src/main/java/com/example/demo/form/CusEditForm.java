@@ -10,6 +10,14 @@ import lombok.Data;
 
 @Data
 public class CusEditForm{
+	
+	  /**
+	   * 顧客ID
+	   */
+	  @Column(name = "name")
+	  private Long id;
+	
+	
 
 	  /**
 	   * 顧客名

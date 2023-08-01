@@ -1,15 +1,24 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.entity.CusEntity;
+import com.example.demo.form.CusEditForm;
+import com.example.demo.form.CusUpdateRequest;
 import com.example.demo.service.CusService;
 
 
@@ -41,39 +50,43 @@ public class CusController {
 		   * @param  model Model
 		   * @return  ユーザー編集画面
 		   */
-		  @GetMapping("housing/CustomerEdit/{id}/edit")
-		  public String displayEdit(@PathVariable  Integer id, Model model) {
+		  @GetMapping("housing/CustomerEdit/{id}")
+		  public String displayEdit(@PathVariable  Long id, Model model) {
 			CusEntity user = cusService.findById(id);
-		    CusUpdateRequest userUpdateRequest = new UserUpdateRequest();
-		 //実装5行
+			CusUpdateRequest cusUpdateRequest = new CusUpdateRequest();
+		    cusUpdateRequest.setId(user.getId());
+		    cusUpdateRequest.setName(user.getName());
+		    cusUpdateRequest.setPhone(user.getPhone());
+		    cusUpdateRequest.setAddress(user.getAddress());
+		    model.addAttribute("CusUpdateRequest", cusUpdateRequest);		    
+		    return "housing/CustomerEdit/{id}";
+		  }
+	    
+	    
 
-		    return "user/edit";
+		  @RequestMapping(value = "/edit/update", method = RequestMethod.POST) 
+		  public String update(@Validated  @ModelAttribute CusEditForm cusEditForm , BindingResult result ,Model model) {
+		  if (result.hasErrors()) {
+			  List<String> errorList = new ArrayList<String>();
+			  for (ObjectError error : result.getAllErrors()) {
+				  errorList.add(error.getDefaultMessage());				  
+			  }		  
+			  model.addAttribute("validationError", errorList);
+			  return "housing/CustomerEdit";			  
 		  }
-	    
-	    
-	    
-		  /**
-		   * ユーザー更新
-		   * @param  userRequest リクエストデータ
-		   * @param  model Model
-		   * @return  ユーザー情報詳細画面
-		   */
-		  @RequestMapping("/user/update")
-		  public String update(@Validated  @ModelAttribute  UserUpdateRequest userUpdateRequest, BindingResult result, Model model) {
-		    if (result.hasErrors()) {
-		      List<String> errorList = new ArrayList<String>();
-		      for (ObjectError error : result.getAllErrors()) {
-		        errorList.add(error.getDefaultMessage());
-		      }
-		      model.addAttribute("validationError", errorList);
-		      return "user/edit";
-		    }
-	    
-	    
-		    // ユーザー情報の更新
-		    userService.update.ここに追加
-		    return String.format("redirect:/user/%d", userUpdateRequest.getId());
-		  }
+		  
+		  cusService.update(cusEditForm);
+		  return String.format("redirect:/housing/%d", cusEditForm.getId());
+		  
+		  
+     }
+		  
+		  
+		  
+		  
+		  
+		  
+
 	    
 	    
 	    

@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.demo.form;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class CusUpdateRequest extends CusRequest implements Serializable {
+public class CusUpdateRequest extends CusEditForm implements Serializable {
 
   /**
    * ユーザーID

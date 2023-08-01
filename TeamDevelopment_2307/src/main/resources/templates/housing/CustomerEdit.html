@@ -58,7 +58,7 @@
     </nav>
     
 
-    <form th:action="@{/user/update}" th:object="${userUpdateRequest}" th:method="post">
+    <form th:action="@{/edit/update}" th:object="${csuEditForm}" th:method="post">
     <input type="hidden" th:field="*{id}" />
     <div class="Form">
       <div class="Form-contents">
@@ -100,7 +100,7 @@
     <!-- ボタン -->
     <div class="buttons">
       <div clas="button-confirm">
-        <td><a th:href="@{/housing}" input type="submit" class="modal-open confirm-Btn">確定</a></td>
+        <td><a th:href="@{/}" input type="submit" class="modal-open confirm-Btn">確定</a></td>
       </div>
       <div clas="button-delete">
         <td><a th:href="@{/}" input type="submit"  class="modal-open delete-Btn">削除</a></td>

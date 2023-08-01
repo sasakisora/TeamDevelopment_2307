@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.CusEntity;
+import com.example.demo.form.CusEditForm;
 import com.example.demo.repository.CusRepository;
 
 /**
@@ -42,17 +43,13 @@ public class CusService {
   }
   
 
-  /**
-   * ユーザー情報 更新
-   * @param user ユーザー情報
-   */
-//  public void update(CusUpdateRequest userUpdateRequest) {
-//	  
-//	CusEntity user = findById(userUpdateRequest.getId());
-//    user.setAddress(userUpdateRequest.getAddress());
-//    user.setName(userUpdateRequest.getName());
-//    user.setPhone(userUpdateRequest.getPhone());
-//    user.setUpdatedAt(new Date(0));
-//    userRepository.save(user);
-//  }
+  public void update(CusEditForm cusEditForm) {
+	    CusEntity user = findById(cusEditForm.getId());
+	    user.setAddress(cusEditForm.getAddress());
+	    user.setName(cusEditForm.getName());
+	    user.setPhone(cusEditForm.getPhone());
+//	    user.setUpdateDate(new Date());
+	    cusRepository.save(user);
+  }
+
 }
