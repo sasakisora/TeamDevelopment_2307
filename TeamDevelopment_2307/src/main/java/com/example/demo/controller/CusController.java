@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.entity.CusEntity;
 import com.example.demo.form.CusEditForm;
-import com.example.demo.form.CusUpdateRequest;
 import com.example.demo.service.CusService;
 
 
@@ -52,19 +51,19 @@ public class CusController {
 		   */
 		  @GetMapping("housing/CustomerEdit/{id}")
 		  public String displayEdit(@PathVariable  Long id, Model model) {
-			CusEntity user = cusService.findById(id);
-			CusUpdateRequest cusUpdateRequest = new CusUpdateRequest();
-		    cusUpdateRequest.setId(user.getId());
-		    cusUpdateRequest.setName(user.getName());
-		    cusUpdateRequest.setPhone(user.getPhone());
-		    cusUpdateRequest.setAddress(user.getAddress());
-		    model.addAttribute("CusUpdateRequest", cusUpdateRequest);		    
-		    return "housing/CustomerEdit/{id}";
+			CusEntity cusEntitiy = cusService.findById(id);
+			CusEditForm cusEditForm = new CusEditForm();
+			cusEditForm.setId(cusEntitiy.getId());
+			cusEditForm.setName(cusEntitiy.getName());
+			cusEditForm.setPhone(cusEntitiy.getPhone());
+			cusEditForm.setAddress(cusEntitiy.getAddress());
+		    model.addAttribute("CusEditForm", cusEditForm);		    
+		    return "CustomerEdit";
 		  }
 	    
 	    
 
-		  @RequestMapping(value = "/edit/update", method = RequestMethod.POST) 
+		  @RequestMapping(value = "/CustomerEdit", method = RequestMethod.POST) 
 		  public String update(@Validated  @ModelAttribute CusEditForm cusEditForm , BindingResult result ,Model model) {
 		  if (result.hasErrors()) {
 			  List<String> errorList = new ArrayList<String>();
@@ -76,10 +75,22 @@ public class CusController {
 		  }
 		  
 		  cusService.update(cusEditForm);
-		  return String.format("redirect:/housing/%d", cusEditForm.getId());
+		  return "housing/CustomerEdit";
+		  
+		  }
+		 
+		
+		  @GetMapping("/delete/{id}")
+		  public String delete(Model model,CusEditForm cusEditForm) {
+			  
+			  cusService.delete(cusEditForm.getId());
+			  
+			  return "housing/CustomerEdit";
+			  
+		  }
 		  
 		  
-     }
+     
 		  
 		  
 		  

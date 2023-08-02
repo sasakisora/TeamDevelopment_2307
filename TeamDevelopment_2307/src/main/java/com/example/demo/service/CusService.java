@@ -16,24 +16,16 @@ import com.example.demo.repository.CusRepository;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class CusService {
-  /**
-   * ユーザー情報 Repository
-   */
+ 
   @Autowired
   private CusRepository cusRepository;
 
-  /**
-   * ユーザー情報 全検索
-   * @return 検索結果
-   */
+
   public List<CusEntity> searchAll() {
     return cusRepository.findAll();
   }
 
-  /**
-   * ユーザー情報 主キー検索
-   * @return 検索結果
-   */
+
   public CusEntity findById(Long id) {
     return cusRepository.findById(id).get();
   }
@@ -44,12 +36,13 @@ public class CusService {
   
 
   public void update(CusEditForm cusEditForm) {
-	    CusEntity user = findById(cusEditForm.getId());
-	    user.setAddress(cusEditForm.getAddress());
-	    user.setName(cusEditForm.getName());
-	    user.setPhone(cusEditForm.getPhone());
+	    CusEntity cusEntity = findById(cusEditForm.getId());
+	    cusEntity.setId(cusEditForm.getId());
+	    cusEntity.setAddress(cusEditForm.getAddress());
+	    cusEntity.setName(cusEditForm.getName());
+	    cusEntity.setPhone(cusEditForm.getPhone());
 //	    user.setUpdateDate(new Date());
-	    cusRepository.save(user);
+	    cusRepository.save(cusEntity);
   }
 
 }
