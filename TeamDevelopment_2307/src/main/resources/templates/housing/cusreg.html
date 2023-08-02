@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>顧客登録</title>
     <meta name="viewport" content="width=device-width, intial-scale=1">
 
-    <link href="css/customer_registration.css" rel="stylesheet">
+    <link th:href="@{/css/cusreg.css]" rel="stylesheet">
 </head>
 
 <body>
+	<div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
+    </div>
+    
     <!--ここからヘッダー-->
     <div class="header">
     <h1>顧客登録</h1>
@@ -19,17 +23,17 @@
     <ol class="breadcrumb">
         <li><a href="menu.html">メニュー</a></li>
         <li><a href="customer_list.html">顧客一覧</a></li>
-        <li><a href="customer_registration.html">顧客登録</a></li>
+        <li><a href="cusreg.html">顧客登録</a></li>
     </ol>
     <!--ここまでパンくずリスト-->
 
     <!--ここからメイン-->
     <div class="main-wrapper">
         <div class="form-area">
-            <form method="post">
+            <form th:method="post" rh:action="@{/cusreg}" th:object="${housing/cusreg}">
                 <div class="name-text">
                     <label for="name">名前 <span>*必須</span></label><br>
-                    <input type="text" id="name" name="name" placeholder="例）山田  太郎" required><br>
+                    <input type="hidden" th:field="*{id}"="name" name="name" placeholder="例）山田  太郎" required><br>
                 </div>
 
                 <div class="date-text">
