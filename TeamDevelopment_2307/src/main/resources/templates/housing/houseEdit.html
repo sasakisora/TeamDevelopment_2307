@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>住宅編集画面</title>
     <meta name="viewport" content="width=device-width, intial-scale=1">
-    <link href="css/style1.css" rel="stylesheet">
+    <link th:href="@{/css/houseEdit.css}" rel="stylesheet">
 </head>
 <body>
     <!--ここからヘッダー-->
@@ -17,14 +17,13 @@
         <ol class="breadcrumb">
             <li><a href="menu.html">メニュー</a></li>
             <li><a href="house_list.html">住宅一覧</a></li>
-            <li><a href="customer_registration.html">住宅編集</a></li>
         </ol>
         <!--ここまでパンくずリスト-->
     
         <!--ここからメイン-->
         <div class="main-wrapper">
             <div class="form-area">
-                <form method="post">
+                <form method="post" action="#">
                     <div class="name-text">
                         <label for="housename">物件名</label>
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="housename" name="housename"><br>

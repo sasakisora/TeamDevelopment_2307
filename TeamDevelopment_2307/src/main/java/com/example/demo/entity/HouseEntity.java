@@ -17,8 +17,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "user")
-public class CusDetEntity implements Serializable {
+@Table(name = "houses")
+public class HouseEntity implements Serializable {
   /**
    * ID
    */
@@ -27,33 +27,48 @@ public class CusDetEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   /**
-   * 名前
+   * 物件名
    */
   @Column(name = "name")
   private String name;
   /**
-   * 住所
+   * 所在地
    */
   @Column(name = "address")
   private String address;
   /**
-   * 電話番号
+   * 土地面積
    */
-  @Column(name = "phone")
-  private String phone;
+  @Column(name = "land_area")
+  private Integer land_area;
   /**
-   * メールアドレス
+   * 間取り
    */
-  @Column(name = "email")
-  private String email;
+  @Column(name = "layout")
+  private String layout;
   /**
-   * 作成日時
+   * 築年数
    */
-  @Column(name = "create_at")
-  private Date createDate;
+  @Column(name = "age")
+  private Integer age;
+  /**
+   * 販売価格
+   */
+  @Column(name = "price")
+  private Integer price;
   /**
    * 更新日時
    */
-  @Column(name = "update_at")
+  @Column(name = "update_date")
   private Date updateDate;
+  /**
+   * 登録日時
+   */
+  @Column(name = "create_date")
+  private Date createDate;
+  /**
+   * 削除日時
+   */
+  @Column(name = "delete_date")
+  private Date deleteDate;
 }
