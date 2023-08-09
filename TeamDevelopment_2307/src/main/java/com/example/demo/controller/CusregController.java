@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,7 +50,7 @@ public class CusregController {
     @GetMapping("/housing/cuslist")
     public String displayUserList(Model model) {
         // 顧客情報の一覧を取得し、Viewに渡す
-        List<CusEntity> cuslist = cusregService.getAllUsers();
+        List<CusEntity> cuslist = cusregService.getAllCustomers();
         model.addAttribute("cusList", cuslist);
         return "housing/cuslist";
     }
