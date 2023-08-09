@@ -10,6 +10,5 @@ import com.example.demo.entity.CusEntity;
  */
 @Repository
 public interface CusregRepository extends JpaRepository<CusEntity, Long> {
-    // ここにCusregRepository独自のメソッドを定義する場合は追加してください
-    // 例：CusEntity findBySomeProperty(String someProperty);
+
 }
