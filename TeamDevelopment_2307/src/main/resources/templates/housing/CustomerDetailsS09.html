@@ -35,25 +35,25 @@
                 </nav>
             </div>
 
-		<!-- type="hidden" th:fild="*{id}" --> 
-<!-- 		<form th:action="@{/house/CustomerDetailsS09}" th:object="${HouseAdd14Request}" th:method="post">       -->   
+        <form action="" th:action th:object="$customers">   
             <div class="center">
                 <div class="customer">
+                    <p type="hidden" th:fild="*{id}"></p>
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
-                        <p>冨田晃洋</p>
+                        <p type="text">冨田晃洋</p>
                     </div>
                     <div class="address customer-detail">住所</div>
                     <div class="border">
-                        <p>東京都港区青海1-111-11 the SOHO 312</p>
+                        <p type="text">東京都港区青海1-111-11 the SOHO 312</p>
                     </div>
                     <div class="tell customer-detail">電話番号</div>
                     <div class="border">
-                        <p>08012345678</p>
+                        <p type="text">08012345678</p>
                     </div>
                     <div class="mail customer-detail">メールアドレス</div>
                     <div class="border">
-                        <p>abcdefg1234@gmail.com</p>
+                        <p type="text">abcdefg1234@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,9 @@
                     <a href="" class="btn csv-download">CSVダウンロード</a>
                     <a href="" class="btn back" >戻る</a>
                 </div>
-            </div>
-       
+            </div>        
+        </form>
+
         </div>
 
     </div>

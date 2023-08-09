@@ -32,7 +32,7 @@ public class CusDetController {
 */
 
 	
-	@GetMapping("housing/CustomerDetailsS09")
+	@GetMapping(value="housing/CustomerDetailsS09/{id}", params="id=1")
 	public String test(Model model) {
 		return "housing/CustomerDetailsS09";
 
