@@ -1,51 +1,37 @@
 package com.example.demo.repository;
  
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entity.User;
- 
+import com.example.demo.entity.UserLoginEntity;
+
+/**
+ * DBへのアクセスメソッドを呼び出すDao
+ * @author aoi
+ *
+ */
 @Repository
-public class UserAccountDao implements IUserAccountDao {
- 
-    private final NamedParameterJdbcTemplate jdbcTemplate;
-     
-    @Autowired
-    public UserAccountDao(NamedParameterJdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-     
-    @Override
-    public Optional<User> findUser(String userId) {
-         
-        String sql = "SELECT id, user_id, password, username "
-                + "FROM users "
-                + "WHERE user_id = :user_id";
-        // パラメータ設定用Map
-        Map<String, Object> param = new HashMap<>();
-        param.put("user_id", userId);
-         
-        User user = new User();
-        // 一件取得
-        try {
-            Map<String, Object> result = jdbcTemplate.queryForMap(sql, param);
-            user.setId((int) result.get("id"));
-            user.setUserId((String) result.get("user_id"));
-            user.setPassword((String)result.get("password"));
-            user.setName((String)result.get("username"));
-        }catch(EmptyResultDataAccessException e){
-            Optional <User> userOpl = Optional.ofNullable(user);
-            return userOpl;
-        }
-         
-        // ラップする
-        Optional <User> userOpl = Optional.ofNullable(user);
-        return userOpl;
-    }
+public class UserAccountDao {
+	
+	@Autowired
+	EntityManager em;
+	
+	/**
+	 * フォームの入力値から該当するユーザを検索 合致するものが無い場合Nullが返される
+	 * @param userName
+	 * @return 一致するユーザが存在するとき:UserEntity、存在しないとき:Null
+	 */
+	public UserLoginEntity findUser(String userName) {
+		String query = "";
+		query += "SELECT * ";
+		query += "FROM user ";
+		query += "WHERE username = :userName "; //setParameterで引数の値を代入できるようにNamedParameterを利用
+		
+		//EntityManagerで取得された結果はオブジェクトとなるので、LoginUser型へキャストが必要となる
+		return (UserLoginEntity)em.createNativeQuery(query, UserLoginEntity.class).setParameter("userName", userName)
+				.getSingleResult();
+	}
+
 }
