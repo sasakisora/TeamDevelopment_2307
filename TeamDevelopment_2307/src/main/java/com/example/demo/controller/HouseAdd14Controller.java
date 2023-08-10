@@ -31,18 +31,19 @@ public class HouseAdd14Controller {
    */
   @Autowired
   private HouseAdd14Service houseAdd14Service;
-
+  
   /**
-   * hause情報一覧画面を表示
+   * hause　メニュー画面を表示
    * @param model Model
-   * @return hause情報一覧画面
+   * @return hause　メニュー画面
    */
-  @GetMapping(value = "/housing/list")
+  @GetMapping(value = "/housing/menu")
   public String displayList(Model model) {
-	List<House> houselist = houseAdd14Service.searchAll();
-    model.addAttribute("houselist", houselist);
-    return "housing/list";
+	List<House> menu = houseAdd14Service.searchAll();
+    model.addAttribute("menu", menu);
+    return "housing/menu";
   }
+
 
   /**
    * hause新規登録画面を表示
@@ -55,15 +56,14 @@ public class HouseAdd14Controller {
     return "housing/houseAdd14";
   }
 
+  
   /**
    * hause新規登録
    * @param Request リクエストデータ
    * @param model Model
-   * @return hause情報一覧画面
    */
   @RequestMapping(value = "/house/create", method = RequestMethod.POST)
   public String create(@Validated @ModelAttribute HouseAdd14Request houseAdd14Request, BindingResult result, Model model) {
-
     if (result.hasErrors()) {
       // 入力チェックエラーの場合
       List<String> errorList = new ArrayList<String>();
@@ -74,8 +74,9 @@ public class HouseAdd14Controller {
       model.addAttribute("HouseAdd14Request", houseAdd14Request);
       return "housing/houseAdd14";
     }
-    // ユーザー情報の登録
+    // house情報の登録
     houseAdd14Service.create(houseAdd14Request);
     return "redirect:/housing/houseAdd14";
   }
+
 }

@@ -24,7 +24,7 @@ public class HouseAdd14Service {
   private HouseAdd14Repository houseAdd14Repository;
 
   /**
-   * ユーザー情報 全検索
+   * ユーザー情報 全検索t 
    * @return 検索結果
    */
   public List<House> searchAll() {
