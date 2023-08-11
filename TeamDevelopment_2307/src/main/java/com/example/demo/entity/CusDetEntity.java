@@ -49,11 +49,11 @@ public class CusDetEntity implements Serializable {
   /**
    * 作成日時
    */
-  @Column(name = "create_at")
+  @Column(name = "created_at")
   private Date createDate;
   /**
    * 更新日時
    */
-  @Column(name = "update_at")
+  @Column(name = "updated_at")
   private Date updateDate;
 }
