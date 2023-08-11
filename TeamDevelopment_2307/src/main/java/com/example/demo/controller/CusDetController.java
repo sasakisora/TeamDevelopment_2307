@@ -21,7 +21,7 @@ public class CusDetController {
 	public String displayView(@PathVariable Long id, Model model) {
 		CusDetEntity cusEntity = cusdetService.findById(id);
 		model.addAttribute("userData", cusEntity);
-		return "CustomerDetailsS09";
+		return "housing/CustomerDetailsS09";
 	}
 
 }

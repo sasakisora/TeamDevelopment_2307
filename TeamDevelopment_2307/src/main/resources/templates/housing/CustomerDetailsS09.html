@@ -29,22 +29,21 @@
         <div th:object="${userData}">
             <div class="center">
                 <div class="customer">
-                    <p type="hidden" th:field="*{id}"></p>
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
-                        <p type="text">冨田晃洋</p>
+                        <p th:text="*{name}">冨田晃洋</p>
                     </div>
                     <div class="address customer-detail">住所</div>
                     <div class="border">
-                        <p type="text">東京都港区青海1-111-11 the SOHO 312</p>
+                        <p th:text="*{address}">東京都江東区青海1-123-11</p>
                     </div>
                     <div class="tell customer-detail">電話番号</div>
                     <div class="border">
-                        <p type="text">08012345678</p>
+                        <p th:text="*{phone}">08012345678</p>
                     </div>
                     <div class="mail customer-detail">メールアドレス</div>
                     <div class="border">
-                        <p type="text">abcdefg1234@gmail.com</p>
+                        <p th:text="*{email}">asdfghjkl1234@gmail.com</p>
                     </div>
                 </div>
             </div>
