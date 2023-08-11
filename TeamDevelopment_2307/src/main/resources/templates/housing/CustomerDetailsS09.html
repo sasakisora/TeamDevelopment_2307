@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>顧客詳細</title>
     <link rel="stylesheet" th:href="@{/css/S09style.css}">
@@ -25,9 +25,11 @@
                 </nav>
             </div>
 
-        <form  th:action="" th:object="$cusData">   
+
+        <div th:object="${userData}">
             <div class="center">
                 <div class="customer">
+                    <p type="hidden" th:field="*{id}"></p>
                     <div class="neme customer-detail">名前</div>
                     <div class="border">
                         <p type="text">冨田晃洋</p>
@@ -49,12 +51,12 @@
 
             <div class="bottom">
                 <div class="button">
-                    <a class="btn edit-delete" >編集削除</a>
+                    <a th:href="@{housing/{id}/edit(id=*{id})}" class="btn edit-delete" >編集削除</a>
                     <a href="" class="btn csv-download">CSVダウンロード</a>
                     <a href="" class="btn back" >戻る</a>
                 </div>
             </div>        
-        </form>
+        </div>
 
         </div>
 

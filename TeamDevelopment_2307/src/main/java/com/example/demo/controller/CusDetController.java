@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,15 +17,11 @@ public class CusDetController {
 	@Autowired
 	private CusDetService cusdetService;
 	
+	@GetMapping("housing/CustomerDetailsS09/{id}")
+	public String displayView(@PathVariable Long id, Model model) {
+		CusDetEntity cusEntity = cusdetService.findById(id);
+		model.addAttribute("userData", cusEntity);
+		return "CustomerDetailsS09";
+	}
 
-	@GetMapping(value="housing/CustomerDetailsS09/{id}", params="id=1")
-	public String display(@PathVariable("id") Long id, Model model) {
-		CusDetEntity cusentity = cusdetService.findById(id);
-		model.addAttribute("cusData", cusentity);
-		return "housing/CustomerDetailsS09";
-	  }
-
-	
-	
 }
-
