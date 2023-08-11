@@ -16,13 +16,13 @@ public class HouseAdd14Request implements Serializable {
   /**
    * 物件名
    */
-  @NotEmpty(message = "物件名は必ずを入力してください")
+  @NotEmpty(message = "物件名は必ず入力してください")
   @Size(max = 100, message = "物件名は100桁以内で入力してください")
   private String name;
   /**
    * 所在地
    */
-  @Size(max = 255, message = "所在地はは255桁以内で入力してください")
+  @Size(max = 255, message = "所在地は255桁以内で入力してください")
   private String address;
   /**
    * 土地面積
