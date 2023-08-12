@@ -38,7 +38,6 @@ public class UserAdd03Service {
   public void create(UserAdd03Request userAdd03request) {
     Date now = new Date();
     UserAdd03 userAdd03 = new UserAdd03();
-    
 	userAdd03.setUsername(userAdd03request.getUsername());
     userAdd03.setPassword(userAdd03request.getPassword());
     userAdd03.setCreateDate(now);

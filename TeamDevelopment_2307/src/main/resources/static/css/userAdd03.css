@@ -1,0 +1,155 @@
+@charset "UTF-8";
+*{	margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family:  "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic",  'メイリオ', Meiryo, MS Pゴシック, MS P Gothic,YuGothic, 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+    font-weight:normal;
+    margin: 0 auto;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+    font-size: 18px;
+    width: 100%;
+    min-width: 1200px;
+}
+header{
+    height: 90px;
+    background-color: #2E4D70;
+    color: #fff;
+    text-align: center;
+}
+main{
+    margin: 0 auto;
+}
+input[type="submit"] {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+a{
+	text-decoration: none;
+	
+}
+
+/* header */
+
+ol{
+    list-style-type: none;
+    display: flex;
+    }
+h1{
+    line-height: 90px;
+    font-size: 36px;
+    font-weight: normal;
+}
+#breadcrumbs{
+    font-size: 16px;
+    margin: 10px 10px auto 35px;
+}
+.breadcrumbs-link{
+    color:#A6CDD3;
+    margin-right:30px;
+    position: relative;
+}
+.breadcrumbs-link::after{
+    content: "\03e";
+    position: absolute;
+    right: -20px;
+}
+.breadcrumbs-link:hover{
+    border-bottom: solid 1px #A6CDD3;
+    padding-bottom: 3px;
+}
+
+
+/* main */
+
+
+#sec-form{
+    margin: 30px auto auto;
+    display: flex;
+    width: 1200px;
+}
+form{
+    margin: 0 auto;
+    width: 100%;
+}
+table{
+	margin: 0 auto;
+    border: none;
+    border-collapse: collapse;
+}
+
+.row{
+    height: 100px;
+}
+
+.building-data{
+    width: 850px;
+    height: 100%;
+    display: flex;
+}
+.title{
+    width: 250px !important;
+    height: 100%;
+    text-align: left;
+}
+.long-box{
+    width: 500px;
+    height: 30px;
+}
+.short-box{
+    width: 250px;
+    height: 30px;
+}
+.text-danger{
+margin-left: 200px;
+	
+}
+#caution{
+	position: relative;
+}
+#caution::after{
+	position: absolute;
+    content: "※記号を含まない半角英数字";
+	top: -100px;
+}
+#wrap-btn{
+	margin:100px auto 50px;
+	display: flex;
+	width: 754px;
+}
+#submit-box{
+    margin: 0 60px auto auto;
+    appearance: none;
+    width: 140px;
+    height: 44px;
+    background-color: #f9b98f;
+    border: none;
+    border-radius: 8px;
+}
+#return-box{
+    margin: 0 auto auto 60px;
+    appearance: none;
+    width: 140px;
+    height: 44px;
+    background-color: #888;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+
+}
+.btn{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: #fff;
+    line-height: 44px;
+
+}

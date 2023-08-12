@@ -53,7 +53,7 @@ public class UserAdd03Controller {
   @GetMapping(value = "/housing/userAdd03")
   public String displayAdd(Model model) {
 	model.addAttribute("UserAdd03Request", new UserAdd03Request());
-    return "housing/houseAdd14";
+    return "housing/userAdd03";
   }
 
   /**
