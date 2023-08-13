@@ -116,8 +116,10 @@ margin-left: 200px;
 }
 #caution::after{
 	position: absolute;
-    content: "※記号を含まない半角英数字";
-	top: -100px;
+    content: "※必須";
+	top: 0px;
+	left:0px;
+	color: firebrick;
 }
 #wrap-btn{
 	margin:100px auto 50px;
