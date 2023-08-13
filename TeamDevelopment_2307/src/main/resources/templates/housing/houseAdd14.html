@@ -20,14 +20,14 @@
 					<li><span id="this-page">住宅登録画面</span></li>
 				</ol>
 			</nav>
-		<div th:if="${validationError}" th:each="error : ${validationError}">
-			<label style="color: red" class="text-danger" th:text="${error}"></label>
-		</div>
+
 			<section id="sec-form">
 				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post" enctype="multipart/form-data">
 
 					<table>
-
+						<div th:if="${validationError}" th:each="error : ${validationError}">
+							<label style="color: red" class="text-danger" th:text="${error}"></label>
+						</div>
 						<tr class="row form-group">
 							<th class="title">
 								<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
@@ -126,7 +126,7 @@
 <!--						</tr>-->
 					</table>
 					<div id="submit-box">
-						<input type="submit" value="登録" class="btn btn-primary">
+						<input type="submit" value="登録" class="btn btn-primary" id="submit-btn">
 					</div>
 				</form>
 			</section>
