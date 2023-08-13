@@ -46,10 +46,11 @@ h1{
     line-height: 90px;
     font-size: 36px;
     font-weight: normal;
+    letter-spacing: 1.1rem;
 }
 #breadcrumbs{
     font-size: 16px;
-    margin: 10px 10px auto 35px;
+    margin: 10px 10px auto 70px;
 }
 .breadcrumbs-link{
     color:#A6CDD3;
