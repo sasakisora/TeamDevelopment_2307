@@ -27,7 +27,7 @@ public class HouseAdd14Request implements Serializable {
   /**
    * 土地面積
    */
-  @Max(value = 100000, message = "土地面積は")
+  @Max(value = 10000, message = "土地面積は5桁以内で入力してください")
   private Integer land_area;
   /**
    * 間取り
