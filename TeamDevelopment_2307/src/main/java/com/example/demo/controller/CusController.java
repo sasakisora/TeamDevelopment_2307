@@ -73,7 +73,7 @@ public class CusController {
 		  }
 		  
 		  cusService.update(cusEditForm);
-		  return "/housing/test";
+		  return "/housing/CustomerDetailsS09";
 		  
 		  }
 		 
@@ -83,7 +83,7 @@ public class CusController {
 		  public String delete(@PathVariable Long id, Model model) {
 		    // ユーザー情報の削除
 		    cusService.delete(id);
-		    return "/housing/test";
+		    return "/housing/CustomerDetailsS09";
 		  }
 	
 		  
