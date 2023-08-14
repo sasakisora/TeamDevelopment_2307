@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,20 +30,32 @@ public class CusService {
   public CusEntity findById(Long id) {
     return cusRepository.findById(id).get();
   }
-  
-  public void delete(Long id) {
-	  cusRepository.deleteById(id);
-  }
-  
+//  
+//  public void delete(Long id) {
+//	  cusRepository.deleteById(id);
+//  }
+//  
 
   public void update(CusEditForm cusEditForm) {
+	    Date now = new Date();
 	    CusEntity cusEntity = findById(cusEditForm.getId());
 	    cusEntity.setId(cusEditForm.getId());
 	    cusEntity.setAddress(cusEditForm.getAddress());
 	    cusEntity.setName(cusEditForm.getName());
 	    cusEntity.setPhone(cusEditForm.getPhone());
-//	    user.setUpdateDate(new Date());
+	    cusEntity.setEmail(cusEditForm.getEmail());
+	    cusEntity.setCreatedAt(now);
+	    cusEntity.setUpdatedAt(now);
+//	    cusEntity.setDeleteAt(now);
+	    
 	    cusRepository.save(cusEntity);
   }
+  
+  public void delete(Long id) {
+	  CusEntity cusEntity = findById(id);
+	  cusRepository.delete(cusEntity);
+  }
+  
+  
 
 }

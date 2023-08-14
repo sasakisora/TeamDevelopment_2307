@@ -1,20 +1,24 @@
 package com.example.demo.form;
 
-import java.util.Date;
+
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
 
-@Data
-public class CusEditForm{
-	
+
+	@Data
+	public class CusEditForm implements Serializable {
 	  /**
 	   * 顧客ID
 	   */
-	  @Column(name = "name")
+	  @Column(name = "id")
 	  private Long id;
 	
 	
@@ -22,28 +26,22 @@ public class CusEditForm{
 	  /**
 	   * 顧客名
 	   */
-	  @NotEmpty(message = "※タスクが入力されていません。")
+	  @NotEmpty(message = "※名前が入力されていません。")
+	  @Size(max = 100, message = "名前は100桁以内で入力してください")
 	  @Column(name = "name")
 	  private String name;
 	  
-	  /**
-	   * 生年月日
-	   */
-	  @NotEmpty(message = "※生年月日が入力されていません。")
-	  @Column(name = "dob")
-	  private Date dob;
 	  
 	  /**
 	   * 住所
 	   */
 	  @NotEmpty(message = "※住所が入力されていません。")
-	  @Column(name = "address")
+	  @Size(max = 255, message = "住所は255桁以内で入力してください")
 	  private String address;
 	  /**
 	   * 電話番号
 	   */
-	  @NotEmpty(message = "※電話番号が入力されていません。")
-	  @Column(name = "phone")
+	  @Pattern(regexp ="0\\d{1,4}-\\d{1,4}-\\d{4}", message = "※電話番号の形式で入力して下さい。")
 	  private String phone;
 	  /**
 	   * メールアドレス
@@ -54,12 +52,12 @@ public class CusEditForm{
 	  /**
 	   * 作成日時
 	   */
-	  @NotEmpty(message = "日にちが入力されていません")
-	  @Column(name = "created_at")
-	  private Date createdAt;
+	  
+//	  @Column(name = "created_at")
+//	  private Date createdAt;
 	  /**
 	   * 更新日時
 	   */
-	  @Column(name = "updated_at")
-	  private Date updatedAt;
+//	  @Column(name = "updated_at")
+//	  private Date updatedAt;
 }
