@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>顧客登録</title>
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+
+    <link th:href="@{/css/cusreg.css]" rel="stylesheet">
+</head>
+
+<body>
+	<div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
+    </div>
+    
+    <!--ここからヘッダー-->
+    <header class="header">
+    <h1>顧客登録</h1>
+    <!--ここまでヘッダー-->
+
+    <!--ここからパンくずリスト-->
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        	<a itemprop="item" href="ホームURL"><span itemprop="name">メニュー</span></a>
+        	<meta itemprop="position" content="1" />
+        </li>
+ 			
+ 
+      	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      		<a itemprop="item" href="顧客一覧URL"><span itemprop="name">顧客一覧</span></a>
+      		<meta itemprop="position" content="2" /> 
+      	</li>
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        	<a itemprop="item" href="cusreg.html"><span itemprop="name">顧客登録</span></a>
+        	<meta itemprop="position" content="3" />
+        </li>
+    </ol>
+    <!--ここまでパンくずリスト-->
+
+    <!--ここからメイン-->
+    <div class="main-wrapper">
+        <div class="form-area">
+            <form th:method="post" th:action="@{/cusreg}" th:object="${housing}">
+                <div class="name-text">
+                    <label for="name">名前 <span>*必須</span></label><br>
+                    <input type="hidden" th:field="*{id}" />
+                    <input type="text" th:field="*{name}" id="name" placeholder="例）山田  太郎" required><br>
+                </div>
+
+                <div class="date-text">
+                    <label for="birthdate">生年月日 <span>*必須</span></label><br>
+                    <input type="text" th:field="*{birthdate}" id="birthdate" name="birthdate" placeholder="例）2000年1月1日" required><br>
+                </div>
+
+                <div class="address-text">
+                    <label for="address">住所 <span>*必須</span></label><br>
+                    <input type="text" th:field="*{address}" id="address" name="address" placeholder="例）東京都江東区青海2-7-4 theSOHO 312号室" required><br>
+                </div>
+
+                <div class="phone-text">
+                    <label for="phone">電話番号 <span>*必須</span></label><br>
+                    <input type="text" th:field="*{phone}" id="phone" name="phone" placeholder="例）03-1234-5678" required><br>
+                </div>
+
+                <div class="email-text">
+                    <label for="email">メールアドレス <span>*必須</span></label><br>
+                    <input type="email" th:field="*{email}" id="email" name="email" placeholder="例）〇〇@rtc.jp" required><br>
+                </div>
+
+                <div class="register-button-container">
+                    <div class="register-button">
+                      <input type="submit" value="登録する" class="register-input">
+                    </div>
+                    <!--<div class="back-button">
+                        <input type="submit" value="戻る" class="back-input">
+                    </div>-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!--画面オーバーレイ表示-->
+    <div id="overlay" class="overlay-event">
+        <div class="flex">
+          <div id="overlay-inner">
+            <p>登録完了しました</p>
+            <button id="close-btn" class="overlay-event" type=button>顧客一覧に戻る</button>
+          </div>
+        </div>
+    </div>
+</body>
+
+</html>
