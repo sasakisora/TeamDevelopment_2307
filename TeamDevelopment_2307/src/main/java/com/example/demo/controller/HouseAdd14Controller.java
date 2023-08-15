@@ -37,11 +37,11 @@ public class HouseAdd14Controller {
    * @param model Model
    * @return hause　メニュー画面
    */
-  @GetMapping(value = "/housing/menu")
+  @GetMapping(value = "/housing/houseAdd14Test")
   public String displayList(Model model) {
 	List<House> menu = houseAdd14Service.searchAll();
     model.addAttribute("menu", menu);
-    return "housing/menu";
+    return "housing/houseAdd14Test";
   }
 
 
