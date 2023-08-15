@@ -34,4 +34,12 @@ public class CusDetService {
   public CusDetEntity findById(Long id) {
     return cusdetRepository.findById(id).get();
   }
+  
+  
+  /**
+   * CSV
+   */
+ 
+  
+  
 }
