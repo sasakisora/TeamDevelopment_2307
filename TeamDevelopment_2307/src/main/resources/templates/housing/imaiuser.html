@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8" />
-    <title>顧客管理・検索画面</title>
-    <link rel="stylesheet" href="css/userserch.css" >
-  </head>
-  <body>
+    <title>ユーザー情報一覧</title>
+    <link rel="stylesheet" th:href="@{/css/userserch.css}" href="../static/css/userserch.css">
+</head>
+<body>
     <header>
         <div class="headerblock">顧客一覧</div>
         <button class="backbutton">←もどる</button>
@@ -13,34 +13,31 @@
     <main>
         <nav>
             <ol class="breadcrumb">
-              <li><a href="/.../">メニュー</a></li>
-              <li>顧客一覧</li>
+                <li><a href="/.../">メニュー</a></li>
+                <li>顧客一覧</li>
             </ol>
-          </nav>
+        </nav>
         <button class="plusbutton">＋新規登録</button>
 
         <!-- 検索フォーム -->
-<form id="form1" action="自分のサイトURL">
-    <input id="sbox"  id="s" name="s" type="text" placeholder="キーワードを入力" />
-    <input id="sbtn" type="submit" value="検索" />
-    </form>
-
-
-    <!-- 顧客テーブル -->
-
-    <table>
-        <tr>
-          <th>名前</th><th>住所</th><th>電話番号</th><th>メールアドレス</th><th>編集</th>
-        </tr>
-        <tr th:each="user : ${user}">
-         <td th:text="${user.name}"><a href=""></a></td>
-         <td th:text="${user.address}"></td>
-         <td th:text="${user.phone}"></td>
-         <td th:text="${user.email}"></td>
-         <td><a href="@{/individualPageUpdate/{id}(id=${id})}" >編集</a></td>
-        </tr>
-      </table>
-
+        <form id="form1" action="/housing/imaiuser" method="get">
+            <input id="sbox" name="keyword" type="text" placeholder="キーワードを入力" />
+            <input id="sbtn" type="submit" value="検索" />
+        </form>
+        
+        <!-- 顧客テーブル -->
+        <table>
+            <tr>
+                <th>名前</th><th>住所</th><th>電話番号</th><th>メールアドレス</th><th>編集</th>
+            </tr>
+            <tr th:each="user : ${userlist}">
+                <td th:text="${user.name}"><a th:href="@{/housing/{id}/edit(id=${user.id})}">${user.name}</a></td>
+                <td th:text="${user.address}"></td>
+                <td th:text="${user.phone}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a th:href="@{/housing/{id}/edit(id=${user.id})}">編集</a></td>
+            </tr>
+        </table>
     </main>
-  </body>
-  </>
+</body>
+</html>

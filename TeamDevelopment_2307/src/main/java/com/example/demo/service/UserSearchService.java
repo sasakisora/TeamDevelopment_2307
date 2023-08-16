@@ -13,18 +13,34 @@ import com.example.demo.repository.UserSearchRepository;
  */
 @Service
 public class UserSearchService {
+    /**
+     * ユーザー情報 Repository
+     */
+    @Autowired
+    private UserSearchRepository userRepository;
 
-  /**
-   * ユーザー情報 Repository
-   */
-  @Autowired
-  private UserSearchRepository userRepository;
+    /**
+     * ユーザー情報 全検索
+     * @return 検索結果
+     */
+    public List<UserSearchEntity> searchAll() {
+        return userRepository.findAll();
+    }
 
-  /**
-   * ユーザー情報 全検索
-   * @return 検索結果
-   */
-  public List<UserSearchEntity> searchAll() {
-    return userRepository.findAll();
-  }
+    /**
+     * ユーザー情報 主キー検索
+     * @return 検索結果
+     */
+    public UserSearchEntity findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * 名前または住所をキーワードとして部分一致検索
+     * @param keyword 検索キーワード
+     * @return 検索結果
+     */
+    public List<UserSearchEntity> searchByNameOrAddress(String keyword) {
+        return userRepository.findByNameContainingIgnoreCaseOrAddressContainingIgnoreCase(keyword, keyword);
+    }
 }

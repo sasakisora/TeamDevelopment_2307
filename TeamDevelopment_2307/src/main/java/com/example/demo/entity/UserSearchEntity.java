@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "customers")
 public class UserSearchEntity implements Serializable {
   /**
    * ID
@@ -42,18 +42,18 @@ public class UserSearchEntity implements Serializable {
   @Column(name = "phone")
   private String phone;
   /**
-   * 更新日時
+   * メールアドレス
    */
-  @Column(name = "update_date")
-  private Date updateDate;
+  @Column(name = "email")
+  private String email;
   /**
-   * 登録日時
+   * 作成日時
    */
-  @Column(name = "create_date")
+  @Column(name = "created_at")
   private Date createDate;
   /**
-   * 削除日時
+   * 更新日時
    */
-  @Column(name = "delete_date")
-  private Date deleteDate;
+  @Column(name = "updated_at")
+  private Date updateDate;
 }
