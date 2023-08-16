@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="common/head :: head_fragment(title = ユーザー登録画面だよ', scripts = ~{::script}, links = ~{::link})">-->
+	<head>
+		<title>ユーザー登録画面だよ</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/userAdd03.css}">
+	</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1 th:text="ユーザー登録画面"></h1>
+		</header>
+
+
+		<main>
+			<nav id="breadcrumbs">
+				<ol>
+					<li><a th:href="@{/housing/userAdd03}" class="breadcrumbs-link">ログイン</a></li>
+					<li><span id="this-page">ユーザー登録画面</span></li>
+				</ol>
+			</nav>
+			
+
+			
+			<section id="sec-form">
+				<form th:action="@{/userAdd03/create}" th:object="${UserAdd03Request}" th:method="post">
+
+					<table>
+						<div th:if="${validationError}" th:each="error : ${validationError}">
+							<label style="color: red" class="text-danger" th:text="${error}"></label>
+						</div>
+						<tr class="row form-group">
+							<th class="title">
+								<label>ユーザーネームの設定：</label>
+							</th>
+							<td class="building_data" colspan="2" id="caution">
+								<input type="text" th:field="*{username}" class="long-box form-control" name="username">
+							</td>
+						</tr>
+
+						<tr class="row form-group">
+							<th class="title">
+								<label>パスワードの設定：</label>
+							</th>
+							<td class="building_data" colspan="2" id="caution">
+								<input type="text" th:field="*{password}" class="long-box form-control" name="password" >
+							</td>
+						</tr>
+
+					</table>
+					
+					<div id="wrap-btn">
+						<div id="submit-box" class="box-btn">
+							<input type="submit" value="登録" class="btn">
+						</div>
+						<div id="return-box" class="box-btn">
+							<a th:href="@{/housing/userAdd03}" class="btn">戻る</a>
+						</div>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
+</body>
+
+
+</html>
