@@ -81,11 +81,11 @@ public class CusDetController {
 	pw.print(list.getUpdateDate());
 	pw.println();
 
-	pw.close();;
+	pw.close();
 
 	//ファイルダウンロードの設定を実施
 	//ファイルの種類は指定しない
-	response.setContentType("application/octet-stream");
+	response.setContentType("application/.csv");
 	response.setHeader("Cache-Control", "private");
 	response.setHeader("Pragma", "");
 	response.setHeader("Content-Disposition",
