@@ -46,36 +46,36 @@ public class UserEditController {
   @GetMapping("/housing/UserEdit/{id}")
   public String displayEdit(@PathVariable  Long id, Model model) {
 	UserEditEntity userEdDelEntity = userServiceS7.findById(id);
-	UserRequestS7 userRequestS4 = new UserRequestS7();
-	userRequestS4.setId(userEdDelEntity.getId());
-    userRequestS4.setUsername(userEdDelEntity.getUsername());
-    userRequestS4.setPassword(userEdDelEntity.getPassword());
-    model.addAttribute("UserRequestS4", userRequestS4);
+	UserRequestS7 userRequestS7= new UserRequestS7();
+	userRequestS7.setId(userEdDelEntity.getId());
+    userRequestS7.setUsername(userEdDelEntity.getUsername());
+    userRequestS7.setPassword(userEdDelEntity.getPassword());
+    model.addAttribute("UserRequestS7", userRequestS7);
 
     return "housing/UserEdit";
     
   }
   
-  @RequestMapping(value = "/UserEdDelS4/update", method = RequestMethod.POST) 
-  public String update(@Validated  @ModelAttribute UserRequestS7 userRequestS4 , BindingResult result ,Model model) {
+  @RequestMapping(value = "/UserEdit/update", method = RequestMethod.POST) 
+  public String update(@Validated  @ModelAttribute UserRequestS7 userRequestS7 , BindingResult result ,Model model) {
   if (result.hasErrors()) {
         List<String> errorList = new ArrayList<String>();
         for (ObjectError error : result.getAllErrors()) {
             errorList.add(error.getDefaultMessage());
         }
         model.addAttribute("validationError", errorList);
-        model.addAttribute("UserRequestS4", userRequestS4);
+        model.addAttribute("UserRequestS7", userRequestS7);
 	  return "/housing/UserEdit";			  
   }
   
-  userServiceS7.update(userRequestS4);
+  userServiceS7.update(userRequestS7);
 //  return "/housing/test";
   return "/housing/menu";
   
   }
   
 
-  @GetMapping("/UserEdDelS4/{id}/delete")
+  @GetMapping("/UserEdit/{id}/delete")
   public String delete(@PathVariable Long id, Model model)  {
 	  userServiceS7.delete(id);
       return "/housing/menu";

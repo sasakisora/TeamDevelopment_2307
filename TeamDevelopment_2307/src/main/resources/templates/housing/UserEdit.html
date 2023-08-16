@@ -48,7 +48,7 @@
 
 			
 					
-        <form th:action="@{/UserEdDelS4/update}" th:object="${UserRequestS4}" th:method="post">               
+        <form th:action="@{/UserEdit/update}" th:object="${UserRequestS7}" th:method="post">               
      	<div th:if="${validationError}" th:each="error : ${validationError}">
 	<label style="color: red ; margin-top: 20px"class="text-danger" th:text="${error}"></label>
 	    </div>            
@@ -80,10 +80,10 @@
   </div>
   <div class="button-2">
       <label for="confirm" clas="button-confirm">
-        <td><button th:href="@{/UserEdDelS4/{id}(id=*{id})}"  input type="submit" class="modal-open confirm-Btn">確定</button></td>
+        <td><button th:href="@{/UserEdit/{id}(id=*{id})}"  input type="submit" class="modal-open confirm-Btn">確定</button></td>
       </label>
       <label for="delete" clas="button-delete">  
-        <td><a th:href="@{/UserEdDelS4/{id}/delete(id=*{id})}" input type="submit"  class="modal-open delete-Btn">削除</a></td>
+        <td><a th:href="@{/UserEdit/{id}/delete(id=*{id})}" input type="submit"  class="modal-open delete-Btn">削除</a></td>
       </label>
   </div>
 
