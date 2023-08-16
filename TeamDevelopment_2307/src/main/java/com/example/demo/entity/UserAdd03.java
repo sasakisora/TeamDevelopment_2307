@@ -17,8 +17,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "houses")
-public class HouseEntity implements Serializable {
+@Table(name = "users")
+public class UserAdd03 implements Serializable {
   /**
    * ID
    */
@@ -27,35 +27,15 @@ public class HouseEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   /**
-   * 物件名
+   * ユーザーネーム
    */
-  @Column(name = "name")
-  private String name;
+  @Column(name = "username")
+  private String username;
   /**
-   * 所在地
+   * パスワード
    */
-  @Column(name = "address")
-  private String address;
-  /**
-   * 土地面積
-   */
-  @Column(name = "land_area")
-  private Integer land_area;
-  /**
-   * 間取り
-   */
-  @Column(name = "layout")
-  private String layout;
-  /**
-   * 築年数
-   */
-  @Column(name = "age")
-  private Integer age;
-  /**
-   * 販売価格
-   */
-  @Column(name = "price")
-  private Integer price;
+  @Column(name = "password")
+  private String password;
   /**
    * 更新日時
    */
