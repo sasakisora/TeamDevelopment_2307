@@ -1,42 +1,60 @@
 package com.example.demo.controller;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequestMapping("/")
 public class LoginController {
+    
+    @Configuration
+    public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //ログイン画面への遷移
+        @Override
+        protected void configure(HttpSecurity security) throws Exception {
+            security.formLogin().disable();
+        }
+    }
     @GetMapping
-    String getLogin() {
+    public String index () {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String login () {
         return "login";
     }
-
-    //ログイン成功時のメニュー画面への遷移
-    @PostMapping
-    String postLogin() {
-        return "redirect:/hello";
-    }
-
+//    @GetMapping
+//    public String login() {
+//        return "housing/login";
+//        
+//    }
+//    @PostMapping("/housing/login")
+//    public String postLogin() {
+//        return "housing/login";
+//        
+//    }
     /**
      * ログイン成功時に呼び出されるメソッド
      * SecurityContextHolderから認証済みユーザの情報を取得しモデルへ追加する
      * @param model リクエストスコープ上にオブジェクトを載せるためのmap
      * @return helloページのViewName
      */
-    @RequestMapping("/hello")
+    @RequestMapping("/sign_in")
     private String init(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         //Principalからログインユーザの情報を取得
         String userName = auth.getName();
         model.addAttribute("userName", userName);
-        return "hello";
+        return "sign_in";
 
     }
 
