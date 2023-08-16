@@ -112,10 +112,10 @@ table{
 margin-left: 200px;
 	
 }
-#caution{
+.caution{
 	position: relative;
 }
-#caution::after{
+.caution::after{
 	position: absolute;
     content: "※必須";
 	top: 0px;
