@@ -28,7 +28,7 @@ public class UserEditController {
    * ユーザー情報 Service
    */
   @Autowired
-  private UserServiceS7 userServiceS4;
+  private UserServiceS7 userServiceS7;
   
   
 //  他のページへ遷移
@@ -43,16 +43,16 @@ public class UserEditController {
    * @param  model Model
    * @return  ユーザー編集画面
    */
-  @GetMapping("/housing/UserEdDelS4/{id}")
+  @GetMapping("/housing/UserEdit/{id}")
   public String displayEdit(@PathVariable  Long id, Model model) {
-	UserEditEntity userEdDelEntity = userServiceS4.findById(id);
+	UserEditEntity userEdDelEntity = userServiceS7.findById(id);
 	UserRequestS7 userRequestS4 = new UserRequestS7();
 	userRequestS4.setId(userEdDelEntity.getId());
     userRequestS4.setUsername(userEdDelEntity.getUsername());
     userRequestS4.setPassword(userEdDelEntity.getPassword());
     model.addAttribute("UserRequestS4", userRequestS4);
 
-    return "housing/UserEdDelS4";
+    return "housing/UserEdit";
     
   }
   
@@ -65,10 +65,10 @@ public class UserEditController {
         }
         model.addAttribute("validationError", errorList);
         model.addAttribute("UserRequestS4", userRequestS4);
-	  return "/housing/UserEdDelS4";			  
+	  return "/housing/UserEdit";			  
   }
   
-  userServiceS4.update(userRequestS4);
+  userServiceS7.update(userRequestS4);
 //  return "/housing/test";
   return "/housing/menu";
   
@@ -77,7 +77,7 @@ public class UserEditController {
 
   @GetMapping("/UserEdDelS4/{id}/delete")
   public String delete(@PathVariable Long id, Model model)  {
-	  userServiceS4.delete(id);
+	  userServiceS7.delete(id);
       return "/housing/menu";
   }
   
