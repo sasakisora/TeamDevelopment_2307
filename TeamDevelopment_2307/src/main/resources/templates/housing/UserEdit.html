@@ -1,0 +1,97 @@
+<!--localhost:8080/housing/UserEdit/1-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー編集・削除</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="stylesheet" th:href="@{/css/UserEdit.css}">
+    <link rel="stylesheet" th:href="@{/css/CusEdit.css}">
+    <link rel="stylesheet" th:href="@{/css/Editcommon.css}">
+</head>
+
+<body>
+    <div class="wrapper">
+		
+<!--form name="header-form" method="post" action="userEdDel.java">-->
+<!--<input type="submit" value="戻る" class="Back">                 -->
+<!--</form>-->
+	
+        <header class="header">          
+            <h1 class="header-name">ユーザー編集・削除</h1>
+        </header>
+            <nav class="pankuzu-list">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <!-- 1つめ -->
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" th:href="@{/housing/menu}">
+            <span itemprop="name">メニュー</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <!-- 2つめ -->
+
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="active" itemprop="item" aria-current="page">
+            <span itemprop="name">ユーザー編集・削除</span>
+          </a>
+          <meta itemprop="position" content="4" />
+        </li>
+      </ol>
+    </nav>
+        
+        
+        
+
+			
+					
+        <form th:action="@{/UserEdit/update}" th:object="${UserRequestS7}" th:method="post">               
+     	<div th:if="${validationError}" th:each="error : ${validationError}">
+	<label style="color: red ; margin-top: 20px"class="text-danger" th:text="${error}"></label>
+	    </div>            
+        
+     <div class="Form  user_Form">
+       <div class="Form-contents">
+	   <input type="hidden" th:field="*{id}" />
+	   
+	   <div class="Form-Item">	   
+         <div class="Form-Item-Label">ユーザーネームの再設定</div>
+         <div>
+            <input type="text" class="Form-Item-Input" th:field ="*{username}" >
+         </div>          
+      </div>
+      
+      <div class="Form-Item">	   
+         <div class="Form-Item-Label">パスワードの再設定 <span class="h1">※記号なし半角英数字</span></div>
+         <div>
+            <input type="text" class="Form-Item-Input" th:field ="*{password}" >
+         </div>          
+      </div>
+      
+   
+<div class="button-wide">
+	  <div class="button-2">
+	  <label for="return" clas="button-return">  
+        <a th:href="@{/housing/menu}" class="return-Btn">戻る</a>
+      </label>
+  </div>
+  <div class="button-2">
+      <label for="confirm" clas="button-confirm">
+        <td><button th:href="@{/UserEdit/{id}(id=*{id})}"  input type="submit" class="modal-open confirm-Btn">確定</button></td>
+      </label>
+      <label for="delete" clas="button-delete">  
+        <td><a th:href="@{/UserEdit/{id}/delete(id=*{id})}" input type="submit"  class="modal-open delete-Btn">削除</a></td>
+      </label>
+  </div>
+
+  
+</div>                   
+ </form>
+        </div>
+    </div>
+    
+</body>
+</html>
