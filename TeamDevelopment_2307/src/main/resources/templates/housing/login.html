@@ -1,0 +1,55 @@
+
+<!--localhost:8080/housing/login-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン画面</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="stylesheet" th:href="@{/css/Editcommon.css}">
+    <link rel="stylesheet" th:href="@{/css/CusEdit.css}">
+   
+</head>
+
+	
+<body>
+    <h2 class="header-name">ログイン</h2>
+    
+<!--    controllerのモデルクラスでセットした　Form formnの頭文字を小さくしたWordをキーにデータを取得する-->
+<!--    <form th:action="@{/housing/login}" method="post" th:object ="${LoginForm}">-->
+<!--	</form>-->
+
+        <div class="Form-Item">
+          <p class="Form-Item-Label ">ユーザー名</p>
+          <input type="text" class="Form-Item-Input">
+        </div>
+        
+        <div class="Form-Item">
+          <p class="Form-Item-Label ">パスワード</p>
+          <input type="text" class="Form-Item-Input">
+        </div>
+        
+        
+        
+   <div class="buttons">     
+      <label for="delete" clas="button-delete">  
+        <td><a th:href="@{/housing/{id}/delete(id=*{id})}"  class="modal-open delete-Btn">ログイン</a></td>
+      </label>
+    </div>     
+     
+            
+
+<!--        </div>ログアウトしました</div>-->
+<!--        <label>ユーザー名</label>-->
+<!--        <input type="text" th:field="*{loginId}" id="username" name="username">-->
+<!--        <input type="text"  id="username" name="username">-->
+<!--        <label>パスワード</label>-->
+<!--        <input type="password" th:field="*{password}" id="password" name="password"><br>-->
+<!--        <button type="submit">ログイン</button>-->
+   
+</body>
+</html>
