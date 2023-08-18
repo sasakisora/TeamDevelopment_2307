@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale1.0">
-    <title>メニュー画面</title>
-    <link rel="stylesheet" href="css/menu.html"> 
-</head>
-<body>
-  <body>
-    <div class="main clearfix">
-             <div class="left"></div>
 
-             <div class = "right-center clearfix">
-                <div class="menu">
-                  <a href="./sample.html" class="btn">ログアウト</a>
-                  <a href="./sample.html" class="btn1">顧客一覧</a>
-                  <a href="./sample.html" class="btn2">住宅一覧</a>
-                  <a href="./sample.html" class="btn3">住宅登録</a>
-                  <a href="./sample.html" class="btn4">My account</a>
-                </div>
-            </div>
-    </div>
-</body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale1.0">
+	<title>メニュー画面</title>
+	<link rel="stylesheet" th:href="@{/css/menu.css}">
+</head>
+
+<body>
+
+	<body>
+		<div class="main clearfix">
+			<div class="left"><img scr="/img/Menu画面.jpeg" alt="Sample image"></div>
+
+			<div class="right-center clearfix">
+				<div class="menu">
+					<!--  <a href="この部分に各HTML名入力して" class="btn">-->
+					<a href="./logout.html" class="btn">ログアウト</a>
+					<a href="./cus.html" class="btn1">顧客一覧</a>
+					<a href="./hs1.html" class="btn2">住宅一覧</a>
+					<a href="./hs2.html" class="btn3">住宅登録</a>
+					<a href="./my.html" class="btn4">My account</a>
+				</div>
+
+
+			</div>
+		</div>
+	</body>
+
 </html>
 </body>
+
 </html>

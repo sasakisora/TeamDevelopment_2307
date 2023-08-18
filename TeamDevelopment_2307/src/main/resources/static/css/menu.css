@@ -9,7 +9,7 @@
     float: left;
     width: 600px;
     height: 800px;
-    background-image:url(./images/0.jpg);
+    background-image:url(/src/main/resources/static/img/);
  }
 
 /* 右画面 */
