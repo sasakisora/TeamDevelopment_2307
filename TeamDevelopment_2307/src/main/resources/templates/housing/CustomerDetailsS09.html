@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顧客詳細</title>
+    <link rel="stylesheet" th:href="@{/css/S09style.css}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h1 class="header-text">顧客管理詳細</h1>
+        </div>
+
+        <div class="main">
+            <div class="top">
+                <nav>
+                    <ol class="breadcrumb">
+                      <li><a class="breadcrumb-top-layer" href="@{/housing/menu}">メニュー</a></li>
+                      <li><a class="breadcrumb-top-layer" href="@{/housing/imaiuser}">顧客一覧</a></li>
+                      <li class="breadcrumb-top-layer">顧客詳細</li>
+                    </ol>
+                </nav>
+            </div>
+
+
+        <div th:object="${userData}">
+            <div class="center">
+                <div class="customer">
+                    <div class="neme customer-detail">名前</div>
+                    <div class="border">
+                        <p th:text="*{name}">冨田晃洋</p>
+                    </div>
+                    <div class="address customer-detail">住所</div>
+                    <div class="border">
+                        <p th:text="*{address}">東京都江東区青海1-123-11</p>
+                    </div>
+                    <div class="tell customer-detail">電話番号</div>
+                    <div class="border">
+                        <p th:text="*{phone}">080-1234-5678</p>
+                    </div>
+                    <div class="mail customer-detail">メールアドレス</div>
+                    <div class="border">
+                        <p th:text="*{email}">7ka7kaumaku1ka714o@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="button">
+                    <a th:href="@{/housing/edit/{id}(id=*{id})}" class="btn edit-delete" >編集削除</a>
+                    <a th:href="@{download(id=*{id})}" type="button" class="btn csv-download">CSVダウンロード</a>
+                    <a href="" class="btn back" >戻る</a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
