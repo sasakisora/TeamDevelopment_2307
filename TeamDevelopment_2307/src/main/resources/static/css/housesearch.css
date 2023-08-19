@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+.header-name {
+    height: 90px;
+    font-size: 42px;
+    display: block;
+    background-color: #2e4d70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
 
 body{
    width: 1366px;
@@ -22,19 +32,18 @@ h2{
 
 
  /* パンくずリスト */
-.breadcrumb a {
+.breadcrumb-top {
    text-decoration: none;
    color: #a6cdd3;
  }
 
- .breadcrumb .breadcrumbs {
-   padding-left: 0;
-   margin-top: 0;
-   margin-bottom: 0;
-   list-style: none;
-   display: flex;
-   flex-wrap: wrap;
+ .breadcrumb {
+   width: 95%;
+    margin: 0 auto;
+    padding: 5px 0;
+    list-style: none;
  }
+ 
  .breadcrumb li {
    display: inline-block;
    position: relative;
