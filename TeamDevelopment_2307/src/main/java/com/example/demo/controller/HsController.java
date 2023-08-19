@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.HsEntity;
 import com.example.demo.form.HsForm;
+import com.example.demo.repository.HsRepository;
 import com.example.demo.service.HsService;
 
 @Controller
@@ -39,6 +40,15 @@ public class HsController {
 	    model.addAttribute("houselist", houselist);
 	    return "housing/hsabiru";
 	    }
+	 
+	@Autowired
+	    private HsRepository hsRepository;
+
+	 @GetMapping("/housing/hsabiru/show-houses")
+	    public String showHouses(Model model) {
+	        List<HsEntity> houses = hsRepository.findAllHouses();
+	        model.addAttribute("houses", houses);
+	        return "housing/hsabiru"; }// houses.html テンプレートを作成し、結果を表示
 
 	@PostMapping(value = "/housing/hsabiru-search")
 	public String performHouseSearch(@ModelAttribute("searchForm") HsForm houseSearchForm, Model model) {
