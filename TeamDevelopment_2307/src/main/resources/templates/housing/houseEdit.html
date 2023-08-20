@@ -1,103 +1,82 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <title>住宅編集画面</title>
-    <link rel="stylesheet" th:href="@{/css/houseEdit.css}">
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+    <link th:href="@{/css/houseEdit.css}" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="header-name">住宅編集画面</h1>
-        </header>
-        
-        <!-- ここからパンくずリスト -->
-        <nav class="pankuzu-list">
-            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <!-- 1つめ -->
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" th:href="@{/housing/menu}">
-                        <span itemprop="name">メニュー</span>
-                    </a>
-                    <meta itemprop="position" content="1" />
-                </li>
-                <!-- 2つめ -->
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" th:href="@{/housing/housesearch}">
-                        <span itemprop="name">住宅一覧</span>
-                    </a>
-                    <meta itemprop="position" content="2" />
-                </li>
-                <!-- 3つめ -->
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a class="active" itemprop="item" aria-current="page">
-                        <span itemprop="name">住宅編集</span>
-                    </a>
-                    <meta itemprop="position" content="3" />
-                </li>
-            </ol>
-        </nav>
-        
-        <!-- ここからメイン -->
-        
-        <form th:action="@{/houseEdit}" th:object="${HouseeditForm}" th:method="post">
-            <div th:if="${validationError}" th:each="error : ${validationError}">
-                <label style="color: red; margin-top: 20px" class="text-danger" th:text="${error}"></label>
-            </div>
-            <div class="form">
-                <div class="form-contents">
+    <!--ここからヘッダー-->
+    <div class="header">
+        <h1>住宅編集画面</h1>
+        </div>
+        <!--ここまでヘッダー-->
+    
+        <!--ここからパンくずリスト-->
+        <ol class="breadcrumb">
+            <li><a th:href="@{/housing/menu}">メニュー</a></li>
+            <li><a th:href="@{/housing/hsabiru}">住宅一覧</a></li>
+            <li>住宅編集</li>
+        </ol>
+        <!--ここまでパンくずリスト-->
+    
+        <!--ここからメイン-->
+        <div class="main-wrapper">
+
+                <form method="post" th:action="@{/houseEdit}" th:object="${HouseeditForm}">
+                    <div th:if="${validationError}" th:each="error : ${validationError}">
+                        <label style="color: red; margin-top: 20px" class="text-danger" th:text="${error}"></label>
+                    </div>
+                
+                <div class="form">
                     <input type="hidden" th:field="*{id}" />
-                    <!-- 物件名 -->
-                    <div class="formitem">
-                        <div class="form-label">物件名</div>
-                        <div>
-                            <input type="text" class="formitem-input" th:field="*{name}">
+                    <div class="name-text">
+                        <label for="housename">物件名</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="housename" name="housename" th:field="*{name}"><br>
+                    </div>
+    
+                    <div class="address-text">
+                        <label for="address">所在地</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="address" name="address" th:field="*{address}"><br>
+                    </div>
+    
+                    <div class="land-text">
+                        <label for="land">土地面積</label>
+                        <input type="text" id="land" name="land" th:field="*{land_area}"><span>&nbsp;&nbsp;㎡</span><br>
+                    </div>
+    
+                    <div class="floor-text">
+                        <label for="floor">間取り</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="floor" name="floor" th:field="*{layout}"><br>
+                    </div>
+    
+                    <div class="age-text">
+                        <label for="age">築年数</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="age" name="age" th:field="*{age}"><span>&nbsp;&nbsp;年</span><br>
+                    </div>
+
+                    <div class="price-text">
+                        <label for="price">販売価格</label>
+                        <input type="text" id="price" name="price" th:field="*{price}"><span>&nbsp;&nbsp;万円</span><br>
+                    </div>    
+
+
+                    <div class="edit-button-container">
+                        <div class="edit-button">
+                            <input type="submit" th:href="@{/housing/houseEdit/{id}(id=*{id})}" value="確定" class="edit-input">
+                        </div>
+                        <div class="delete-button">
+                            <input type="submit" th:href="@{/housing/{id}/delete(id=*{id})}" value="削除" class="delete-input">
                         </div>
                     </div>
-                    
-                    <!-- 所在地 -->
-                    <div class="formitem">
-                        <p class="form-label ">所在地</p>
-                        <input type="text" class="formitem-input" th:field="*{address}">
-                    </div>
-                    
-                    <!-- 土地面積 -->
-                    <div class="formitem">
-                        <p class="form-label ">土地面積</p>
-                        <input type="text" class="formitem-input" th:field="*{land_area}">
-                    </div>
-                    
-                    <!-- 間取り -->
-                    <div class="formitem">
-                        <p class="form-label ">間取り</p>
-                        <input type="text" class="formitem-input" th:field="*{layout}">
-                    </div>
-                    
-                    <!-- 間取り -->
-                    <div class="formitem">
-                        <p class="form-label ">築年数</p>
-                        <input type="text" class="formitem-input" th:field="*{age}">
-                    </div>
-                          
-                    <!--販売価格 -->
-                    <div class="formitem">
-                        <p class="form-label ">販売価格</p>
-                        <input type="text" class="formitem-input" th:field="*{price}">
-                    </div>
-                                        
-                </div>
+                </form>
             </div>
-            <div class="buttons">
-                <div class="button-confirm">
-                    <button th:href="@{/houseEdit/{id}(id=*{id})}" class="confirm-button">確定</button>
-                </div>
-                <div class="button-delete">
-                    <a th:href="@{/housing/{id}/delete(id=*{id})}" class="delete-button">削除</a>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+
+
 </body>
+
+
 </html>

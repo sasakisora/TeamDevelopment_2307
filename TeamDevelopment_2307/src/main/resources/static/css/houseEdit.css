@@ -17,7 +17,7 @@ body {
     background-color: #2e4d70;
     margin: 0 auto;
 }
-.header-name {
+h1 {
     text-align: center;
     padding-top: 10px;
     font-size: 42px;
@@ -61,7 +61,7 @@ body {
     margin: 0 auto;
     padding-top: 20px;
 }
-.form-area {
+.form {
     max-width: 80%;
     margin: 0 auto;
 }
