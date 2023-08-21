@@ -23,43 +23,26 @@ public class CusregService {
     @Autowired
     private CusregRepository cusregRepository;
 
-    public CusEntity findById(Long id) {
-        return cusregRepository.findById(id).orElse(null);
+    public List<CusEntity> searchAll(){
+    	return cusregRepository.findAll();
     }
 
-    public void createCus(CusregRequest cusregRequest) {
-        CusEntity customers = new CusEntity();
-        customers.setName(cusregRequest.getName());
-        customers.setAddress(cusregRequest.getAddress());
-        customers.setPhone(cusregRequest.getPhone());
-        cusregRepository.save(customers);
-    }
-
-    public List<CusEntity> getAllCustomers() {
-        return cusregRepository.findAll();
-    }
-
-    /**
-     * 顧客情報 主キー検索
-     * @return  検索結果
-     */
-    public CusEntity getCustomerById(Long id) {
-        return cusregRepository.findById(id).orElse(null);
-    }
-    
-    /**
-     * 顧客情報 新規登録
-     * @param  cusregRequest 顧客情報
-     */
     public void create(CusregRequest cusregRequest) {
-        Date now = new Date();
+    	Date now = new Date();
         CusEntity customers = new CusEntity();
         customers.setName(cusregRequest.getName());
         customers.setAddress(cusregRequest.getAddress());
         customers.setPhone(cusregRequest.getPhone());
-        customers.setCreateDate(now);
+        customers.setEmail(cusregRequest.getEmail());
+        customers.setCreatedAt(now);
+        customers.setUpdatedAt(now);
         cusregRepository.save(customers);
     }
+
+
+
+
+
 }
 
 
