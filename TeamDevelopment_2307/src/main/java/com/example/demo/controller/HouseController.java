@@ -20,13 +20,13 @@ public class HouseController {
     public String getAllHouses(Model model) {
         List<House> houses = houseRepository.findAll();
         model.addAttribute("houses", houses);
-        return "hs";
+        return "housing/hs";
     }
 
     @GetMapping("/search")
     public String searchHouses(@RequestParam("keyword") String keyword, Model model) {
         List<House> searchResults = houseRepository.findByKeyword(keyword);
         model.addAttribute("searchResults", searchResults);
-        return "hs";
+        return "housing/hs";
     }
 }
