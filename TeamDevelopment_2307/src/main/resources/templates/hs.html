@@ -9,7 +9,6 @@
 </head>
 <title>住宅管理・検索画面</title>
 </head>
-
 <body>
 	<!--ここからヘッダー-->
 	<header>
@@ -31,7 +30,7 @@
 
 	<!-- 検索フォーム -->
 	<div class="search_manu">
-		<form id="form1" action="/housing/hsabiru" method="get">
+		 <form th:action="@{/search}" method="get">
 			<p>物件ID　　　<input id="sbox" name="keyword" type="text" placeholder="キーワードを入力" />
 			<p>物件名　　　 <input dirname="sbox" name="keyword2" type="text" placeholder="キーワードを入力"></p>
 			<p>所在地　　　<input Landarea="sbox" name="keyword3" type="text" placeholder="キーワードを入力" /></p>
@@ -79,24 +78,28 @@
 			</a>
 		</a>
 	</ul>
-	<!-- 住宅テーブル -->
+    <!-- 住宅テーブル -->
 	<table>
 		<tr>
 			<th>物件ID</th>
 			<th>物件名</th>
-			<th>所在地</th>
+			<th>土地面積</th>
+			<th>間取り</th>
 			<th>築年数</th>
 			<th>販売価格</th>
-		<tr th:each="house : ${houselist}">
-    <td th:text="${house.id}"></td>
-    <td th:text="${house.name}"></td>
-    <td th:text="${house.address}"></td>
-    <td th:text="${house.age}"></td>
-    <td th:text="${house.price}"></td>
-</tr>
-	
-	</table>
-	</main>
+			<th>所在地</th>
+      <tbody>
+       <tr th:each="house : ${searchResults}">-->
+            <td th:text="${house.id}"></td>
+            <td th:text="${house.name}"></td>
+            <td th:text="${house.land_area}"></td>
+            <td th:text="${house.layout}"></td>
+            <td th:text="${house.age}"></td>
+            <td th:text="${house.price}"></td>
+            <td th:text="${house.address}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
-
 </html>
