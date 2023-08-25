@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dto.HouseAdd14Request;
-import com.example.demo.entity.House;
 import com.example.demo.service.HouseAdd14Service;
 
 @SpringBootApplication
@@ -32,16 +31,14 @@ public class HouseAdd14Controller {
   @Autowired
   private HouseAdd14Service houseAdd14Service;
   
-  /**
-   * hause　メニュー画面を表示
-   * @param model Model
-   * @return hause　メニュー画面
-   */
-  @GetMapping(value = "/housing/menu")
-  public String displayList(Model model) {
-	List<House> menu = houseAdd14Service.searchAll();
-    model.addAttribute("menu", menu);
-    return "housing/menu";
+/**
+  * hause　メニュー画面を表示
+  * @param model Model
+  * @return menu.html　メニュー画面
+  */
+  @GetMapping("/housing/menu")
+  public String displayMenu(Model model) {
+      return "housing/menu"; // 遷移先のテンプレート名
   }
 
 

@@ -4,6 +4,20 @@
 
 <!--<head th:replace="common/head :: head_fragment(title = '住宅登録管理画面だよ', scripts = ~{::script}, links = ~{::link})">-->
 	<head><link rel="stylesheet" type="text/css" th:href="@{/css/houseAdd14.css}">
+	
+	<script type="text/javascript"> 
+		function check(){
+			if(window.confirm('登録してよろしいですか？')){ // 確認ダイアログを表示
+			return true; // 「OK」時は送信を実行
+			}
+			else{ // 「キャンセル」時の処理
+			window.alert('キャンセルされました'); // 警告ダイアログを表示
+			return false; // 送信を中止
+			}
+		}
+	</script>
+
+
 </head>
 
 <body>
@@ -22,7 +36,7 @@
 			</nav>
 
 			<section id="sec-form">
-				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post" enctype="multipart/form-data">
+				<form th:action="@{/house/create}" th:object="${HouseAdd14Request}" th:method="post" enctype="multipart/form-data" onSubmit="return check()">
 
 					<table>
 						<div th:if="${validationError}" th:each="error : ${validationError}">
@@ -130,8 +144,10 @@
 					</div>
 				</form>
 			</section>
+
 		</main>
 	</div>
+
 </body>
 
 

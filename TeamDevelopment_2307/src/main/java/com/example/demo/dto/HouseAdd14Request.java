@@ -42,7 +42,7 @@ public class HouseAdd14Request implements Serializable {
   /**
    * 販売価格
    */
-  @Max(value = 10000, message = "販売価格は5桁以内で入力してください")
+  @Max(value = 100000, message = "販売価格は5桁以内で入力してください")
   private Integer price;
  
 }
