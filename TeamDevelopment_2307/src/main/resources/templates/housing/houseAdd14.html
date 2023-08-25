@@ -3,11 +3,13 @@
 
 
 <!--<head th:replace="common/head :: head_fragment(title = '住宅登録管理画面だよ', scripts = ~{::script}, links = ~{::link})">-->
-	<head><link rel="stylesheet" type="text/css" th:href="@{/css/houseAdd14.css}">
+	<head>
+	<title>住宅登録管理画面だよ</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/houseAdd14.css}">
 	
 	<script type="text/javascript"> 
 		function check(){
-			if(window.confirm('登録してよろしいですか？')){ // 確認ダイアログを表示
+			if(window.confirm('登録してよろしいですか？')){ 
 			return true; // 「OK」時は送信を実行
 			}
 			else{ // 「キャンセル」時の処理
