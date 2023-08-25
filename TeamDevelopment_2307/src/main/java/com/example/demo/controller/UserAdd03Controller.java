@@ -37,11 +37,11 @@ public class UserAdd03Controller {
    * @param model Model
    * @return ログイン画面
    */
-  @GetMapping(value = "/housing/login03")
+  @GetMapping(value = "/housing/login")
   public String displayList(Model model) {
 	List<UserAdd03> list = userAdd03Service.searchAll();
     model.addAttribute("list", list);
-    return "housing/login03";
+    return "housing/login";
   }
 
 
