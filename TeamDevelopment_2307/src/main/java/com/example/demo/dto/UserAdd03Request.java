@@ -23,5 +23,6 @@ public class UserAdd03Request implements Serializable {
    */
   @NotBlank(message = "パスワードを入力してください")
   @Size(max = 10, message = "パスワードは10桁以内で入力してください。")
+  @Size(min = 4, message = "パスワードは4桁以上で入力してください。")
   private String password;
 }
