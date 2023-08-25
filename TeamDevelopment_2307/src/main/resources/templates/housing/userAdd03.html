@@ -3,8 +3,20 @@
 <!--<head th:replace="common/head :: head_fragment(title = ユーザー登録画面だよ', scripts = ~{::script}, links = ~{::link})">-->
 	<head>
 		<title>ユーザー登録画面だよ</title>
-		<link rel="stylesheet" type="text/css" th:href="@{/css/userAdd03.css}">
-	</head>
+		<link rel="stylesheet" type="text/css" href="/css/userAdd03.css">
+		<script type="text/javascript"> 
+			function check(){
+				if(window.confirm('登録してよろしいですか？')){ // 確認ダイアログを表示
+				return true; // 「OK」時は送信を実行
+				}
+				else{ // 「キャンセル」時の処理
+				window.alert('キャンセルされました'); // 警告ダイアログを表示
+				return false; // 送信を中止
+			}
+		}
+		</script>
+	</head>	
+
 
 <body>
 	<div class="container">
@@ -24,8 +36,7 @@
 
 			
 			<section id="sec-form">
-				<form th:action="@{/userAdd03/create}" th:object="${UserAdd03Request}" th:method="post">
-
+				<form th:action="@{/userAdd03/create}" th:object="${UserAdd03Request}" method="post" onsubmit="return check()" >
 					<table>
 						<div th:if="${validationError}" th:each="error : ${validationError}">
 							<label style="color: red" class="text-danger" th:text="${error}"></label>
@@ -54,9 +65,9 @@
 						<div id="submit-box" class="box-btn">
 							<input type="submit" value="登録" class="btn">
 						</div>
-						<div id="return-box" class="box-btn">
-							<a th:href="@{/housing/userAdd03}" class="btn">戻る</a>
-						</div>
+<!--						<div id="return-box" class="box-btn">-->
+<!--							<a th:href="@{/housing/userAdd03}" class="btn">戻る</a>-->
+<!--						</div>-->
 					</div>
 				</form>
 			</section>
