@@ -41,7 +41,7 @@ public class HouseAdd14Controller {
   public String displayList(Model model) {
 	List<House> menu = houseAdd14Service.searchAll();
     model.addAttribute("menu", menu);
-    return "housing/houseAdd14Test";
+    return "housing/houseAdd14";
   }
 
 
