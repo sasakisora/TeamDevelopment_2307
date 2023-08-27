@@ -9,8 +9,14 @@
     float: left;
     width: 600px;
     height: 800px;
-    background-image:url(/src/main/resources/static/img/);
  }
+ /* 画像コンテナ */
+.image-container {
+    margin: auto;
+    width: 600px;
+    height: 800px;
+    text-align: center; /* 画像を中央に表示 */
+}
 
 /* 右画面 */
 .right-center{
@@ -18,7 +24,7 @@
 }
 
 /* ログアウト */
-.manu{
+.menu{
    float:left;
    position: relative;
    width: 600px;
@@ -88,5 +94,3 @@
    background-color:#e4b484;
    color:white;
  }
-
-

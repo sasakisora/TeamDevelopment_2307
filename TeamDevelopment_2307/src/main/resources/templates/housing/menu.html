@@ -10,27 +10,23 @@
 </head>
 
 <body>
-
-	<body>
-		<div class="main clearfix">
-			<div class="left"><img scr="/img/Menu画面.jpeg" alt="Sample image"></div>
-
-			<div class="right-center clearfix">
-				<div class="menu">
-					<!--  <a href="この部分に各HTML名入力して" class="btn">-->
-					<a href="./logout.html" class="btn">ログアウト</a>
-					<a href="./cus.html" class="btn1">顧客一覧</a>
-					<a href="./hs1.html" class="btn2">住宅一覧</a>
-					<a href="./hs2.html" class="btn3">住宅登録</a>
-					<a href="./my.html" class="btn4">My account</a>
-				</div>
-
-
-			</div>
+	<!--	左側に画像を表示  -->
+	<div class="main clearfix">
+		<div class="left">
+			 <div class="image-container">
+			<img th:src="@{/Menu画面.jpeg}" alt="Image"　width="800px" height="800px" style="float: left;">
+	</div></div>
+<!--右側にメニューボタンを表示-->
+	<div class="right-center clearfix">
+		<div class="menu">
+			<a href="@{/login}" class="btn">ログアウト</a>
+			<a href="@{/}" class="btn1">顧客一覧</a>
+			<a th:href="@{/hs}" class="btn2">住宅一覧</a>
+			<a href="@{/}" class="btn3">住宅登録</a>
+			<a href="@{/}" class="btn4">My account</a>
 		</div>
-	</body>
-
-</html>
+	</div>
+	</div>
 </body>
 
 </html>
