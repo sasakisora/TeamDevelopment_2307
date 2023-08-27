@@ -9,7 +9,6 @@
     float: left;
     width: 600px;
     height: 800px;
-    background-image:url(./images/0.jpg);
  }
 
 /* 右画面 */
@@ -18,7 +17,7 @@
 }
 
 /* ログアウト */
-.manu{
+.menu{
    float:left;
    position: relative;
    width: 600px;
@@ -88,5 +87,4 @@
    background-color:#e4b484;
    color:white;
  }
-
 
