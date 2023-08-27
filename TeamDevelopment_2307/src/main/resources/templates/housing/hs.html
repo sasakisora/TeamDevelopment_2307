@@ -21,8 +21,8 @@
 	<!--ここからパンくずリスト-->
 	<div class="breadcrumb">
 		<ul class="breadcrumbs">
-			<li><a href="menu.html">メニュー</a></li>
-			<li>住宅管理(検索)</li>
+			<li><a th:href="@{/housing/menu}">メニュー</a></li>
+			<li><a th:href="@{/hs}">住宅管理(検索)</a></li>
 		</ul>
 	</div>
 	<!--ここまでパンくずリスト-->
@@ -31,11 +31,13 @@
 	<!-- 検索フォーム -->
 	<div class="search_manu">
 		 <form th:action="@{/search}" method="get">
-			<p>物件ID　　　<input id="sbox" name="keyword" type="text" placeholder="キーワードを入力" />
-			<p>物件名　　　 <input dirname="sbox" name="keyword2" type="text" placeholder="キーワードを入力"></p>
-			<p>所在地　　　<input Landarea="sbox" name="keyword3" type="text" placeholder="キーワードを入力" /></p>
-			<p>築年数　　　<input price="sbox" name="keyword6" type="text" placeholder="キーワードを入力" /></p>
-			<p>販売価格　　<input address="sbox" name="keyword7" type="text" placeholder="キーワードを入力" /></p>
+			<p>物件ID　　　　<input id="sbox" name="keyword" type="text" placeholder="キーワードを入力" />
+			<p>物件名　　　　<input dirname="sbox" name="keyword2" type="text" placeholder="キーワードを入力"></p>
+			<p>土地面積　　　<input Landarea="sbox" name="keyword3" type="text" placeholder="キーワードを入力" /></p>
+			<p>間取り　　　　<input Landarea="sbox" name="keyword4" type="text" placeholder="キーワードを入力" /></p>
+			<p>築年数　　　　<input Landarea="sbox" name="keyword5" type="text" placeholder="キーワードを入力" /></p>
+			<p>販売価格　　　<input price="sbox" name="keyword6" type="text" placeholder="キーワードを入力" /></p>
+			<p>所在地　　　　<input address="sbox" name="keyword7" type="text" placeholder="キーワードを入力" /></p>
 
 			<input id="sbtn" type="submit" value="検索" />
 			<br>
@@ -97,6 +99,7 @@
             <td th:text="${house.age}"></td>
             <td th:text="${house.price}"></td>
             <td th:text="${house.address}"></td>
+            <td><a th:href="@{/housing/menu}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
     </table>

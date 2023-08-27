@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale1.0">
+	<title>メニュー画面</title>
+	<link rel="stylesheet" th:href="@{/css/menu.css}">
+</head>
+
+<body>
+	<!--	左側に画像を表示  -->
+	<div class="main clearfix">
+		<div class="left">
+			 <div class="image-container">
+			<img th:src="@{/Menu画面.jpeg}" alt="Image"　width="800px" height="800px" style="float: left;">
+	</div></div>
+<!--右側にメニューボタンを表示-->
+	<div class="right-center clearfix">
+		<div class="menu">
+			<a href="@{/login}" class="btn">ログアウト</a>
+			<a href="@{/}" class="btn1">顧客一覧</a>
+			<a th:href="@{/hs}" class="btn2">住宅一覧</a>
+			<a href="@{/}" class="btn3">住宅登録</a>
+			<a href="@{/}" class="btn4">My account</a>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>
