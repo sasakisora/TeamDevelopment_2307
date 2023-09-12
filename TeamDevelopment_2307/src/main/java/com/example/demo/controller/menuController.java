@@ -18,37 +18,37 @@ public class menuController {
 
 	//ログイン画面//	
 	
-	@GetMapping("housing/logout.html")
+	@GetMapping(value = "/housing/logout")
 	public String gologout() {
-		return "housing/logout.html";
+		return "housing/logout";
 	}
 	
 	//顧客一覧画面//	
 	
-	@GetMapping("housing/cus.html")
-	public String gocus() {
-		return "housing/cus.html";
+	@GetMapping(value ="/housing/customerlist")
+	public String gocustomerlist() {
+		return "housing/customerlist";
 	}
 	
 	//住宅一覧画面//	
 	
-	@GetMapping("housing/hs1.html")
+	@GetMapping(value="/housing/houseseach")
 	public String gohs1() {
-		return "housing/hs1.html";
+		return "housing/houseseach";
 	}
 	
 	//住宅登録画面//	
 	
-	@GetMapping("housing/hs2.html")
+	@GetMapping(value="/housing/housingregistration")
 	public String gohs2t() {
-		return "housing/hs2.html";
+		return "housing/housingregistration";
 	}
 	
 	//my account//	
 	
-	@GetMapping("housing/my.html")
+	@GetMapping(value="/housing/myaccount")
 	public String gomy() {
-		return "housing/my.html";
+		return "housing/myaccount";
 	}
   
 }
